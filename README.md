@@ -1,34 +1,53 @@
 # 🌐 Adnan Sajjad Portfolio Website
 
-Welcome to the **official portfolio website** of **Adnan Sajjad**, a Financial Analyst, Digital Marketer, and Freelancer from Karachi, Pakistan.
+Welcome to my official **portfolio website**, built to showcase my **professional background**, **education**, and **services** in the fields of **Finance**, **Travel & Tourism**, **Real Estate**, **Digital Marketing**, and **Freelancing**.
 
-## 🔗 Live Website
-Visit the live Google Site:  
-👉 [https://sites.google.com/view/adnan-sajjad](https://sites.google.com/view/adnan-sajjad)
+🔗 **Live Website:**  
+👉 [https://adnansajjad786.github.io/portfolio-website/](https://adnansajjad786.github.io/portfolio-website/)
 
-## 🧩 About This Repository
-This repository contains:
-- The source code for Adnan Sajjad’s personal and professional portfolio website  
-- Backups of important sections like **About**, **Education**, **Experience**, and **Services**  
-- A structured HTML design ready for deployment on GitHub Pages  
+---
 
-## 🧠 Technologies Used
-- HTML5  
-- CSS3  
-- JavaScript  
-- Responsive Web Design  
-- SEO-Optimized Layout  
-- Hosted on Google Sites  
+## 👨‍💼 About Me
+I am **Adnan Sajjad**, a professional from Karachi, Pakistan.  
+With a background in **Finance & Accounting (ERP + IFRS)** and experience in **Travel, Marketing, and Real Estate**, I provide both **on-site** and **remote services** worldwide.
 
-## 💼 Author
-**Adnan Sajjad**  
-Managing Director – Concepts Travel (Pvt.) Ltd.  
-Financial Analyst | Digital Marketer | Freelancer  
-📍 Karachi, Sindh, Pakistan  
+- 🎓 Bachelor of Commerce (B.Com)
+- 💼 Managing Director at *Concepts Travel (Pvt.) Ltd.*
+- 🌍 Freelancer & Consultant on multiple global platforms
+- 💻 Skilled in **ERP**, **Tally**, **Oracle**, **Microsoft Dynamics 365**, and **Digital Tools**
 
-🌐 [Personal Profile](https://adnan-sajjad.webnode.page)  
-🐙 [GitHub Profile](https://github.com/AdnanSajjad786)  
-🧰 [Bitbucket Workspace](https://bitbucket.org/adnan-sajjad/workspace/overview/)  
+---
 
-📅 **Copyright © 29 September 2025**  
-All rights reserved. Powered by Adnan Sajjad.
+## 🧭 Website Sections
+Here are the main areas of my portfolio:
+
+- **🏠 Home** — Introduction and overview  
+- **👤 About Me** — Education, Certifications, and CV  
+- **💼 Work Experience** — Financial Analyst, Travel, Real Estate & Marketing Projects  
+- **🧾 Services** — HR, Finance, Digital Marketing, Travel & Consulting  
+- **📸 Portfolio** — Clients, Photos, and Testimonials  
+- **📬 Contact** — Booking, Opening Hours, and Blog  
+
+Full details: [Google Sites Portfolio](https://sites.google.com/view/adnan-sajjad)
+
+---
+
+## 🛠️ Technologies Used
+- **HTML5** and **CSS3**
+- **Responsive design**
+- **GitHub Pages Hosting**
+- **SEO & Open Graph meta tags** for social media previews
+
+---
+
+## 📩 Contact
+📧 **Email:** [conceptstravel786@gmail.com](mailto:conceptstravel786@gmail.com)  
+🌍 **Website:** [https://sites.google.com/view/adnan-sajjad](https://sites.google.com/view/adnan-sajjad)  
+💼 **LinkedIn:** *(add your LinkedIn profile link if you’d like)*  
+
+---
+
+### 📜 Copyright
+© 2025 **Adnan Sajjad**. All rights reserved.  
+*Powered by Adnan Sajjad – Concepts Travel Pvt Ltd.*
+
