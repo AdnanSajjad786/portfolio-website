@@ -7,16 +7,10 @@
   <meta name="description" content="Adnan Sajjad — Financial Analyst, Digital Marketer, Travel & Tourism, Real Estate and Freelancing services.">
   <meta name="keywords" content="Adnan Sajjad, Financial Analyst, ERP, IFRS, Digital Marketing, Travel, Real Estate, Portfolio">
   <meta name="author" content="Adnan Sajjad">
-  <link rel="icon" href="https://drive.google.com/uc?export=view&id=1UWFd6mccARGw-9ldfj8X7sFcpKxB-6Ur">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Adnan Sajjad – Online Professional Services Hub">
-  <meta property="og:description" content="Financial Analyst, Digital Marketer, Travel & Tourism and Freelance Services">
-  <meta property="og:image" content="https://drive.google.com/uc?export=view&id=1UWFd6mccARGw-9ldfj8X7sFcpKxB-6Ur">
-  <meta property="og:url" content="https://adnansajjad786.github.io/portfolio-website/">
-
-  <!-- Theme colors -->
   <meta name="theme-color" content="#071017">
+
+  <!-- Fav/icon (kept as your Drive icon if desired) -->
+  <link rel="icon" href="https://raw.githubusercontent.com/AdnanSajjad786/portfolio-website/main/favicon.png" />
 
   <style>
   /* ---------- Reset & base ---------- */
@@ -32,7 +26,7 @@
   html,body{height:100%}
   body{
     margin:0;
-    font-family: Inter, Poppins, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    font-family: Inter, Poppins, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, monospace;
     background: linear-gradient(120deg,#021021 0%, #041326 40%, #071019 100%);
     color:#e6f1ee;
     -webkit-font-smoothing:antialiased;
@@ -77,12 +71,12 @@
     border-radius:12px;
     overflow:hidden;
     box-shadow:0 10px 40px rgba(0,0,0,0.6);
-    background:linear-gradient(180deg, rgba(0,0,0,0.25), rgba(0,0,0,0.4));
+    background:linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.28));
     border:1px solid rgba(255,255,255,0.03);
   }
   .header-media{
     width:100%;
-    height:280px;
+    height:340px;
     display:flex;
     align-items:center;
     justify-content:center;
@@ -98,7 +92,7 @@
     align-items:center;
     padding:18px;
     gap:12px;
-    background:linear-gradient(180deg, rgba(2,6,23,0.2), rgba(2,6,23,0.35));
+    background:linear-gradient(180deg, rgba(2,6,23,0.18), rgba(2,6,23,0.38));
   }
   .site-title{
     font-size:1.8rem;
@@ -134,7 +128,7 @@
   }
   #chrome-widget .icon:hover{transform:scale(1.12)}
 
-  /* ---------- hero frame (16:9) containing 360 video + wheel ---------- */
+  /* ---------- hero frame (placeholder for 360 or image) ---------- */
   .hero{
     display:flex;
     gap:20px;
@@ -159,13 +153,16 @@
     backdrop-filter: blur(4px);
   }
 
-  /* video inside frame */
-  .frame video{
-    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  /* video inside frame (we will use iframe-based video elsewhere) */
+  .frame img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
   }
 
   /* rotating wheel area */
-  #wheel-widget{ width:100%; height:100%; position:relative; display:flex; align-items:center; justify-content:center; }
+  #wheel-widget{ width:100%; height:650px; position:relative; display:flex; align-items:center; justify-content:center; }
   #wheel-face{ width:650px; height:650px; transform-style:preserve-3d; animation:spin 70s linear infinite; }
   @keyframes spin{ from{ transform:translateX(-50%) rotateY(0deg); } to{ transform:translateX(-50%) rotateY(360deg); } }
   .wheel-item{
@@ -179,9 +176,6 @@
   }
   .wheel-item a{ color:var(--accent); text-decoration:none; font-size:0.88rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; width:100%; text-align:center;}
   .wheel-item:hover{ transform:scale(1.08) translateZ(20px); background:rgba(0,255,106,0.12); z-index:150; }
-
-  /* apply mouse tilt */
-  .tilt{transform-style:preserve-3d; transition:transform .15s ease}
 
   /* ---------- side column / videos ---------- */
   .side {
@@ -199,7 +193,7 @@
   p.muted{ color:var(--muted); margin:0; font-size:0.94rem }
 
   /* ---------- typing widget ---------- */
-  #typing-heading{ width:100%; text-align:center; background:#010f08; padding:10px 0; margin-top:18px; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.45)}
+  #typing-heading{ width:100%; text-align:center; background:#010f08; padding:18px 0; margin-top:18px; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.45)}
   #typing-text{ font-size:1.15rem; font-weight:700; color:var(--accent); margin:0; font-family:monospace; text-shadow:0 0 10px rgba(0,255,106,0.12)}
 
   /* ---------- contact + calendly area ---------- */
@@ -212,6 +206,15 @@
 
   /* calendly */
   .calendly-box{ flex:1 1 360px; min-width:300px; height:520px; border-radius:12px; overflow:hidden; border:1px solid rgba(255,255,255,0.03); background:#020814; }
+
+  /* ---------- google business/map section styling ---------- */
+  .google-business {
+    background: linear-gradient(135deg,#f0f4ff00 0%, #d9e7ff00 100%);
+    color:#cfeee2;
+    padding:18px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,0.03);
+  }
 
   /* ---------- footer ---------- */
   footer{ margin-top:28px; padding:20px; border-radius:12px; background:linear-gradient(180deg, rgba(0,0,0,0.6), rgba(3,8,12,0.9)); color:#cfeee2; display:flex; gap:20px; flex-wrap:wrap; align-items:flex-start; justify-content:space-between }
@@ -227,15 +230,33 @@
   /* scroll to top */
   #toTop{ position:fixed; right:18px; bottom:20px; z-index:90; width:44px; height:44px; border-radius:50%; background:linear-gradient(90deg,var(--accent), #00c77f); display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 8px 30px rgba(0,0,0,0.6) }
 
+  /* specific media/image sections to prevent overlay */
+  .gallery-image {
+    width:100%;
+    display:flex;
+    justify-content:center;
+    margin:18px 0;
+    position:relative;
+    z-index:2;
+  }
+  .gallery-image img{
+    max-width:100%;
+    width:920px;
+    height:auto;
+    border-radius:12px;
+    box-shadow:0 18px 60px rgba(0,0,0,0.6);
+    border:1px solid rgba(255,255,255,0.03);
+  }
+
   /* responsive */
   @media (max-width:1000px){
     .hero{ flex-direction:column; align-items:center }
     .side{ order:2; width:100% }
     .frame{ width:100%; aspect-ratio:16/9 }
     footer{ flex-direction:column; gap:12px }
+    #wheel-face{ transform: none; width:520px; height:520px; }
   }
 
-  /* small accessibility */
   a:focus{ outline:3px solid rgba(0,255,106,0.12); outline-offset:3px }
   </style>
 </head>
@@ -245,15 +266,14 @@
   <div class="bg-gradient"></div>
   <canvas id="particles" class="particles"></canvas>
 
-  <!-- TIDIO chat -->
+  <!-- TIDIO chat (kept as you had) -->
   <script src="//code.tidio.co/pogxgzfctrvbwtfr4amxo7x1kp2bxkml.js" async></script>
 
   <div class="wrap">
-    <!-- ===== HEADER ===== -->
+    <!-- ===== HEADER (uses GitHub raw image link) ===== -->
     <header aria-label="Hero header">
       <div class="header-media" id="header-media"
-           style="background-image:url('https://drive.google.com/uc?export=view&id=1UWFd6mccARGw-9ldfj8X7sFcpKxB-6Ur')">
-        <!-- optional overlay -->
+           style="background-image:url('https://raw.githubusercontent.com/AdnanSajjad786/portfolio-website/main/Adnan%20office%20Sitting%20close-up%20view.jpg')">
       </div>
 
       <div class="header-overlay">
@@ -273,26 +293,16 @@
       </div>
     </header>
 
-    <!-- ===== HERO (frame with 360 + wheel) ===== -->
+    <!-- ===== HERO (frame with decorative image) + side videos (unchanged visual) ===== -->
     <section class="hero" id="hero">
       <div class="frame" role="region" aria-label="Interactive profile frame">
         <div class="frame-inner tilt" id="frameInner">
-          <!-- 360 video autoplay loop inside frame -->
-          <video id="rotVideo" playsinline muted autoplay loop poster="https://drive.google.com/uc?export=view&id=1UWFd6mccARGw-9ldfj8X7sFcpKxB-6Ur">
-            <source src="https://drive.google.com/uc?export=view&id=1q_VOC-oBEClkvLRhoTbVDKF68ZYUSbsU" type="video/mp4">
-            Your browser does not support HTML5 video.
-          </video>
-
-          <!-- Rotating wheel overlay -->
-          <div id="wheel-widget" style="position:relative; width:100%; height:100%;">
-            <div id="wheel-face" style="position:absolute; top:50%; left:50%; transform:translateX(-50%) translateY(-50%);">
-              <!-- wheel items will be injected by JS below -->
-            </div>
-          </div>
+          <!-- Use header image inside frame as fallback/visual (no Drive video to avoid embed issues) -->
+          <img src="https://raw.githubusercontent.com/AdnanSajjad786/portfolio-website/main/Adnan%20office%20Sitting%20close-up%20view.jpg" alt="Adnan office sitting view">
         </div>
       </div>
 
-      <!-- side column with intro & education videos -->
+      <!-- side column with intro & education videos (kept as embeds) -->
       <aside class="side">
         <div class="card">
           <h2 class="section-title">🎬 Introduction</h2>
@@ -311,6 +321,37 @@
         </div>
       </aside>
     </section>
+
+    <!-- ===== Gallery Image (Adnan-white-dress) - separate section so it won't overlap ===== -->
+    <section class="gallery-image" aria-label="Fashion image">
+      <img src="https://raw.githubusercontent.com/AdnanSajjad786/portfolio-website/main/Adnan-white-dress.png" alt="Adnan in white dress">
+    </section>
+
+    <!-- ===== Looping YouTube Video Section (separate, does not overlay wheel) ===== -->
+    <section id="loop-video" style="width:100%; background:#000; padding:28px 0; border-radius:12px;">
+      <div style="max-width:920px; margin:0 auto; text-align:center;">
+        <h2 style="color:var(--accent); font-family:monospace; margin:0 0 14px 0;">▶ Looping Video</h2>
+        <!-- Use YouTube embed with autoplay=1&mute=1&loop=1&playlist=<VIDEO_ID> for looping -->
+        <div style="border-radius:12px; overflow:hidden; box-shadow:0 18px 60px rgba(0,0,0,0.6)">
+          <iframe width="100%" height="520"
+            src="https://www.youtube.com/embed/o58ovhVZ600?autoplay=1&mute=1&loop=1&playlist=o58ovhVZ600&rel=0"
+            frameborder="0"
+            allow="autoplay; encrypted-media; picture-in-picture"
+            allowfullscreen
+            title="Loop Video"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Typing heading widget above wheel (kept separate) -->
+    <div id="typing-heading">
+      <h2 id="typing-text"> </h2>
+    </div>
+
+    <!-- ===== Rotating Wheel Widget (kept and fixed) ===== -->
+    <div id="wheel-widget" aria-label="Rotating pages wheel">
+      <div id="wheel-face" style="position:absolute; top:50%; left:50%; transform:translateX(-50%) translateY(-50%);"></div>
+    </div>
 
     <!-- ===== Services carousel + small intro ===== -->
     <section class="card" id="services" style="display:flex; flex-direction:column; gap:12px">
@@ -357,10 +398,25 @@
       </div>
     </section>
 
-    <!-- Typing heading widget above footer -->
-    <div id="typing-heading">
-      <h2 id="typing-text"> </h2>
+    <!-- Typing heading repeated small spacer (keeps original feel) -->
+    <div id="typing-heading" style="margin-top:8px;">
+      <h2 id="typing-text-2" style="display:none"> </h2>
     </div>
+
+    <!-- ===== Google Business Section (map + review) ===== -->
+    <section class="google-business" aria-label="Google business">
+      <h3 style="color:var(--accent); margin:0 0 6px 0">📍 Google Business</h3>
+      <p class="small" style="color:var(--muted); margin:0 0 12px 0;">House No R-852, Road No 2, Sector 15 A/2, Buffer Zone, Karachi</p>
+      <div style="max-width:900px; margin:0 auto;">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.386265619886!2d67.03489631499496!3d24.93779828402439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb3390e91b61cb1%3A0x4df0e9f24ed109b0!2sSector%2015-A%202%20Buffer%20Zone%20North%20Karachi%20Town%2C%20Karachi%2C%20Karachi%20City%2C%20Sindh!5e0!3m2!1sen!2s!4v1696778455084!5m2!1sen!2s"
+          width="100%" height="300" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy">
+        </iframe>
+      </div>
+      <div style="margin-top:12px; text-align:center;">
+        <a href="https://g.page/r/CZ4tReAOrnVuEAE/review" target="_blank" class="float-btn" style="padding:10px 18px; border-radius:10px; background:linear-gradient(90deg,var(--accent),#00c77f); color:#00120b; text-decoration:none; font-weight:700;">⭐ Leave a Google Review</a>
+      </div>
+    </section>
 
     <!-- ===== Footer sitemap (three columns) ===== -->
     <footer>
@@ -382,7 +438,6 @@
         <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-education" target="_blank">Education</a>
         <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-work-experience" target="_blank">Work Experience</a>
         <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-travel-history" target="_blank">Travel History</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-company-concepts-travel-pvt-ltd" target="_blank">Concepts Travel Pvt Ltd</a>
       </div>
 
       <div class="footer-col">
@@ -392,14 +447,12 @@
         <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services/travel-tourism-services" target="_blank">Travel & Tourism Services</a>
         <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services/real-estates-services" target="_blank">Real Estate Services</a>
         <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services/digital-marketing-services" target="_blank">Digital Marketing Services</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services/sales-consulting-services" target="_blank">Sales Consulting</a>
       </div>
 
       <div style="width:100%; margin-top:14px; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
         <div class="small">© Oct 2025 Adnan Sajjad. All Rights Reserved. Powered by GitHub • Cloudflare • Netlify • Vercel</div>
         <div style="display:flex;gap:10px;align-items:center;">
           <div id="visitor-count" class="small">Visitors: 0</div>
-          <!-- analytics placeholder -->
           <div class="small">Analytics: <span id="gaStatus">inactive (replace G-XXXXXXXXXX)</span></div>
         </div>
       </div>
@@ -420,10 +473,11 @@
   </div>
 
 <script>
-/* ---------- Utility & Config ---------- */
+/* ---------- Utility & Config (updated) ---------- */
 const CONFIG = {
-  DRIVE_FRAME_IMG: 'https://drive.google.com/uc?export=view&id=1q_VOC-oBEClkvLRhoTbVDKF68ZYUSbsU', // video file used in video src
-  HEADER_IMG: 'https://drive.google.com/uc?export=view&id=1UWFd6mccARGw-9ldfj8X7sFcpKxB-6Ur',
+  HEADER_IMG: 'https://raw.githubusercontent.com/AdnanSajjad786/portfolio-website/main/Adnan%20office%20Sitting%20close-up%20view.jpg',
+  DRESS_IMG: 'https://raw.githubusercontent.com/AdnanSajjad786/portfolio-website/main/Adnan-white-dress.png',
+  YT_LOOP: 'https://www.youtube.com/embed/o58ovhVZ600?autoplay=1&mute=1&loop=1&playlist=o58ovhVZ600&rel=0',
   YT_INTRO: 'https://www.youtube.com/embed/WfYGV7auC1w',
   YT_EDU: 'https://www.youtube.com/embed/TfBXOAW_Bt0',
   FORM_ACTION: 'https://formspree.io/f/xqadodqv',
@@ -453,7 +507,7 @@ const CONFIG = {
       p.x += p.vx; p.y += p.vy;
       if(p.x<0)p.x=w; if(p.x>w)p.x=0; if(p.y<0)p.y=h; if(p.y>h)p.y=0;
       ctx.beginPath();
-      ctx.fillStyle = 'rgba(255,255,255,'+ (p.alpha*0.06) +')';
+      ctx.fillStyle = 'rgba(255,255,255,'+ (p.alpha*0.04) +')';
       ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
       ctx.fill();
     }
@@ -478,6 +532,7 @@ const CONFIG = {
     {url:"https://sites.google.com/view/adnan-sajjad/contact-adnan-sajjad", label:"Contact"}
   ];
   const wheel = document.getElementById('wheel-face');
+  if(!wheel) return;
   const count = pages.length;
   const step = 360 / count;
   pages.forEach((p,i)=>{
@@ -491,7 +546,7 @@ const CONFIG = {
   });
 })();
 
-/* ---------- tilt on mouse move for frameInner ---------- */
+/* ---------- tilt on mouse move for frameInner (visual only) ---------- */
 (function tiltLogic(){
   const f = document.getElementById('frameInner');
   if(!f) return;
@@ -501,8 +556,8 @@ const CONFIG = {
     const cy = r.top + r.height/2;
     const dx = e.clientX - cx;
     const dy = e.clientY - cy;
-    const rx = (dy / r.height) * -10;
-    const ry = (dx / r.width) * 10;
+    const rx = (dy / r.height) * -7;
+    const ry = (dx / r.width) * 7;
     f.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`;
   });
   f.addEventListener('mouseleave', ()=> f.style.transform='rotateX(0deg) rotateY(0deg)');
@@ -519,6 +574,7 @@ const CONFIG = {
     'Student Scholarship Services'
   ];
   const c = document.getElementById('carousel');
+  if(!c) return;
   services.forEach((s,i)=>{
     const card = document.createElement('div');
     card.style.minWidth='220px';
@@ -534,6 +590,7 @@ const CONFIG = {
   // simple auto-scroll
   let pos=0;
   setInterval(()=>{
+    if(!c) return;
     pos += 240;
     if(pos > c.scrollWidth - c.clientWidth) pos = 0;
     c.scrollTo({left:pos, behavior:'smooth'});
@@ -545,6 +602,7 @@ const CONFIG = {
   const text = "🌐 Explore Adnan Sajjad Website — Click Rotating Page Card";
   let i=0;
   const el = document.getElementById('typing-text');
+  if(!el) return;
   function typeEffect(){
     if(i < text.length){
       el.innerText = text.substring(0,i+1);
@@ -564,6 +622,7 @@ document.getElementById('openContact').addEventListener('click',()=> window.open
 /* ---------- scroll to top ---------- */
 (function toTop(){
   const btn = document.getElementById('toTop');
+  if(!btn) return;
   btn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
   window.addEventListener('scroll', ()=> btn.style.display = window.scrollY > 200 ? 'flex' : 'none');
 })();
@@ -591,21 +650,21 @@ document.getElementById('openContact').addEventListener('click',()=> window.open
   }
 })();
 
-/* ---------- small niceties: open external links in new tab show target blank (already used) ---------- */
-
 /* ---------- ensure form sends via Formspree & visual success ---------- */
 document.getElementById('contactForm').addEventListener('submit', function(e){
   // show a quick message and allow default behaviour to Formspree
-  // You can handle ajax submission here if you like.
   alert('Thank you — your message will be sent. Please check confirmation email from Formspree.');
 });
 
 /* ---------- Accessibility: allow keyboard to focus wheel items ---------- */
 (function keyboardFocus(){
-  const items = document.querySelectorAll('.wheel-item a');
-  items.forEach(a=>{
-    a.addEventListener('keydown', e=>{
-      if(e.key === 'Enter') a.click();
+  // this will work once wheel items exist
+  document.addEventListener('DOMContentLoaded', ()=>{
+    const items = document.querySelectorAll('.wheel-item a');
+    items.forEach(a=>{
+      a.addEventListener('keydown', e=>{
+        if(e.key === 'Enter') a.click();
+      });
     });
   });
 })();
