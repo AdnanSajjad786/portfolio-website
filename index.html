@@ -1,673 +1,240 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Adnan Sajjad – Online Professional Services Hub</title>
-  <meta name="description" content="Adnan Sajjad — Financial Analyst, Digital Marketer, Travel & Tourism, Real Estate and Freelancing services.">
-  <meta name="keywords" content="Adnan Sajjad, Financial Analyst, ERP, IFRS, Digital Marketing, Travel, Real Estate, Portfolio">
-  <meta name="author" content="Adnan Sajjad">
-  <meta name="theme-color" content="#071017">
-
-  <!-- Fav/icon (kept as your Drive icon if desired) -->
-  <link rel="icon" href="https://raw.githubusercontent.com/AdnanSajjad786/portfolio-website/main/favicon.png" />
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adnan Sajjad Portfolio</title>
   <style>
-  /* ---------- Reset & base ---------- */
-  :root{
-    --bg-1:#020406;
-    --bg-2:#071019;
-    --accent:#00ff6a; /* neon green highlight */
-    --muted:#9aa6b2;
-    --card:#071224cc;
-    --glass: rgba(255,255,255,0.04);
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0;
-    font-family: Inter, Poppins, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, monospace;
-    background: linear-gradient(120deg,#021021 0%, #041326 40%, #071019 100%);
-    color:#e6f1ee;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    overflow-x:hidden;
-    scroll-behavior:smooth;
-  }
+    body {
+      margin:0;
+      padding:0;
+      font-family: Arial, sans-serif;
+      background-color:#010f08;
+      color:#00ff6a;
+      overflow-x:hidden;
+    }
 
-  /* ---------- animated gradient + particles ---------- */
-  .bg-gradient{
-    position:fixed;
-    inset:0;
-    z-index:-100;
-    background: linear-gradient(120deg,#001219,#04202b 40%,#041426);
-    background-size:400% 400%;
-    animation:gradShift 18s ease infinite;
-    filter: saturate(110%);
-  }
-  @keyframes gradShift{
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-  }
-  .particles{
-    position:fixed; inset:0; z-index:-90; pointer-events:none;
-    background: transparent;
-  }
+    /* General iframe/video styling */
+    .video-frame {
+      width:400px;
+      height:225px;
+      border:none;
+      margin:10px;
+    }
 
-  /* ---------- page container ---------- */
-  .wrap{
-    max-width:1200px;
-    margin:30px auto;
-    padding:22px;
-    display:flex;
-    flex-direction:column;
-    gap:20px;
-  }
+    /* Container for two videos + side image */
+    .video-container {
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      gap:20px;
+      flex-wrap:wrap;
+      margin:20px 0;
+    }
 
-  /* ---------- header ---------- */
-  header{
-    position:relative;
-    border-radius:12px;
-    overflow:hidden;
-    box-shadow:0 10px 40px rgba(0,0,0,0.6);
-    background:linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.28));
-    border:1px solid rgba(255,255,255,0.03);
-  }
-  .header-media{
-    width:100%;
-    height:340px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background-size:cover;
-    background-position:center;
-  }
-  .header-overlay{
-    position:absolute;
-    inset:0;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    padding:18px;
-    gap:12px;
-    background:linear-gradient(180deg, rgba(2,6,23,0.18), rgba(2,6,23,0.38));
-  }
-  .site-title{
-    font-size:1.8rem;
-    font-weight:700;
-    color:var(--accent);
-    text-shadow:0 0 12px rgba(0,255,106,0.12), 0 6px 30px rgba(0,0,0,0.8);
-    letter-spacing:0.6px;
-    margin:0;
-  }
-  .site-sub{
-    color:var(--muted);
-    margin:0;
-    font-size:0.95rem;
-  }
+    .video-side-image {
+      max-width:400px;
+      max-height:225px;
+      object-fit:contain;
+      margin-top:0;
+    }
 
-  /* ---------- chrome widget (floating) ---------- */
-  #chrome-widget{position:absolute; right:16px; bottom:16px; z-index:40}
-  #chrome-widget .widget{
-    backdrop-filter: blur(6px);
-    padding:10px 14px;
-    border-radius:18px;
-    display:flex;
-    gap:10px;
-    align-items:center;
-    box-shadow:0 8px 30px rgba(0,0,0,0.5);
-    border:1px solid rgba(255,255,255,0.04);
-    background:linear-gradient(145deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  }
-  #chrome-widget .icon{
-    width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;
-    box-shadow:0 3px 8px rgba(0,0,0,0.35);
-    transition:transform .18s;
-  }
-  #chrome-widget .icon:hover{transform:scale(1.12)}
+    /* Right side floating buttons */
+    #floating-buttons {
+      position:fixed;
+      right:0;
+      top:50%;
+      transform:translateY(-50%);
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      z-index:9999;
+    }
 
-  /* ---------- hero frame (placeholder for 360 or image) ---------- */
-  .hero{
-    display:flex;
-    gap:20px;
-    align-items:flex-start;
-    flex-wrap:wrap;
-    justify-content:center;
-  }
-  .frame{
-    width:920px;
-    max-width:100%;
-    aspect-ratio:16/9;
-    border-radius:18px;
-    overflow:hidden;
-    position:relative;
-    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.3));
-    box-shadow:0 18px 60px rgba(3,10,20,0.7), inset 0 1px 0 rgba(255,255,255,0.02);
-    border: 1px solid rgba(0,255,106,0.06);
-  }
-  .frame-inner{
-    position:absolute; inset:12px; border-radius:12px; overflow:hidden; background:rgba(4,9,12,0.45);
-    display:flex; align-items:center; justify-content:center; flex-direction:column;
-    backdrop-filter: blur(4px);
-  }
+    #floating-buttons a {
+      background:#00ff6a;
+      color:#010f08;
+      padding:10px 15px;
+      border-radius:5px 0 0 5px;
+      text-decoration:none;
+      font-weight:bold;
+      text-align:center;
+      display:block;
+    }
 
-  /* video inside frame (we will use iframe-based video elsewhere) */
-  .frame img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-  }
+    #floating-buttons a:hover {
+      background:#ffffff;
+      color:#010f08;
+    }
 
-  /* rotating wheel area */
-  #wheel-widget{ width:100%; height:650px; position:relative; display:flex; align-items:center; justify-content:center; }
-  #wheel-face{ width:650px; height:650px; transform-style:preserve-3d; animation:spin 70s linear infinite; }
-  @keyframes spin{ from{ transform:translateX(-50%) rotateY(0deg); } to{ transform:translateX(-50%) rotateY(360deg); } }
-  .wheel-item{
-    position:absolute; top:50%; left:50%; width:170px; height:56px; margin:-27px -85px;
-    background: linear-gradient(180deg, rgba(0,255,106,0.06), rgba(0,255,106,0.02));
-    border:1px solid rgba(0,255,106,0.18);
-    border-radius:10px; display:flex; align-items:center; justify-content:center;
-    font-weight:700; color:var(--accent); text-shadow:0 0 6px rgba(0,255,106,0.06);
-    backface-visibility:hidden; transition:transform .25s ease, background .2s;
-    cursor:pointer; padding:4px;
-  }
-  .wheel-item a{ color:var(--accent); text-decoration:none; font-size:0.88rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; width:100%; text-align:center;}
-  .wheel-item:hover{ transform:scale(1.08) translateZ(20px); background:rgba(0,255,106,0.12); z-index:150; }
+    /* Rotating wheel styling */
+    #wheel-widget {
+      width:100%;
+      height:650px;
+      background:#010f08;
+      font-family:monospace;
+      perspective:2000px;
+      box-shadow: inset 0 0 30px rgba(0,255,100,0.2);
+      margin:0;
+      padding:0;
+      overflow:hidden;
+      position:relative;
+    }
 
-  /* ---------- side column / videos ---------- */
-  .side {
-    width:360px; max-width:100%; display:flex; flex-direction:column; gap:16px;
-  }
-  .card {
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,0.03);
-    box-shadow:0 8px 24px rgba(2,8,20,0.6);
-  }
-  .video-embed { width:100%; aspect-ratio:16/9; border-radius:10px; overflow:hidden; background:#000 }
+    #wheel-face {
+      width:650px;
+      height:650px;
+      position:absolute;
+      top:0;
+      left:50%;
+      transform:translateX(-50%);
+      transform-style:preserve-3d;
+      animation:spin 70s linear infinite;
+    }
 
-  /* text widgets */
-  h2.section-title{ margin:0 0 8px 0; color:var(--accent); font-size:1.1rem; letter-spacing:0.4px }
-  p.muted{ color:var(--muted); margin:0; font-size:0.94rem }
+    @keyframes spin {
+      from { transform:translateX(-50%) rotateY(0deg); }
+      to   { transform:translateX(-50%) rotateY(360deg); }
+    }
 
-  /* ---------- typing widget ---------- */
-  #typing-heading{ width:100%; text-align:center; background:#010f08; padding:18px 0; margin-top:18px; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.45)}
-  #typing-text{ font-size:1.15rem; font-weight:700; color:var(--accent); margin:0; font-family:monospace; text-shadow:0 0 10px rgba(0,255,106,0.12)}
+    .wheel-item {
+      position:absolute;
+      top:50%; left:50%;
+      width:160px;
+      height:55px;
+      margin:-27px -80px;
+      background:rgba(0,255,106,0.08);
+      border:2px solid rgba(0,255,106,0.6);
+      border-radius:10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:0.8rem;
+      font-weight:600;
+      text-align:center;
+      overflow:hidden;
+      text-shadow:0 0 4px #00ff6a;
+      backface-visibility:hidden;
+      padding:4px;
+    }
 
-  /* ---------- contact + calendly area ---------- */
-  .contact-area{ display:flex; gap:18px; flex-wrap:wrap; align-items:flex-start; justify-content:space-between; margin-top:10px }
-  .contact-card{ flex:1 1 520px; min-width:300px; background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.55)); padding:18px; border-radius:12px; border:1px solid rgba(255,255,255,0.03) }
-  .notice{ background:#b20b0b; color:#fff; font-weight:700; padding:12px; border-radius:8px; margin-bottom:12px }
-  form label{ color:var(--muted); font-size:0.95rem }
-  input[type=text], input[type=email], textarea{ width:100%; padding:12px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:#e7f8ef; margin-top:6px }
-  button[type=submit]{ padding:12px 20px; background:linear-gradient(90deg,var(--accent), #00c77f); color:#002017; border:none; font-weight:700; border-radius:10px; cursor:pointer }
+    .wheel-item a {
+      color:#00ff6a;
+      text-decoration:none;
+      display:block;
+      width:100%;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
 
-  /* calendly */
-  .calendly-box{ flex:1 1 360px; min-width:300px; height:520px; border-radius:12px; overflow:hidden; border:1px solid rgba(255,255,255,0.03); background:#020814; }
+    .wheel-item:hover {
+      background:rgba(0,255,106,0.25);
+      transform:scale(1.1);
+      z-index:100;
+    }
 
-  /* ---------- google business/map section styling ---------- */
-  .google-business {
-    background: linear-gradient(135deg,#f0f4ff00 0%, #d9e7ff00 100%);
-    color:#cfeee2;
-    padding:18px;
-    border-radius:12px;
-    border:1px solid rgba(255,255,255,0.03);
-  }
+    /* Responsive adjustments */
+    @media screen and (max-width: 900px) {
+      .video-container {
+        flex-direction: column;
+        align-items: center;
+      }
 
-  /* ---------- footer ---------- */
-  footer{ margin-top:28px; padding:20px; border-radius:12px; background:linear-gradient(180deg, rgba(0,0,0,0.6), rgba(3,8,12,0.9)); color:#cfeee2; display:flex; gap:20px; flex-wrap:wrap; align-items:flex-start; justify-content:space-between }
-  .footer-col{ width:30%; min-width:220px; }
-  .footer-col h4{ color:var(--accent); margin:0 0 8px 0 }
-  .footer-link{ display:block; color:#cfeee2; text-decoration:none; font-size:0.92rem; margin:4px 0 }
-  .small{ font-size:0.85rem; color:var(--muted) }
+      .video-side-image,
+      .video-frame {
+        max-width: 90%;
+        height: auto;
+      }
 
-  /* floating widgets */
-  .floating-actions{ position:fixed; right:20px; bottom:90px; display:flex; flex-direction:column; gap:12px; z-index:80 }
-  .float-btn{ background:linear-gradient(90deg,var(--accent), #00c77f); color:#00120b; padding:12px 14px; border-radius:10px; font-weight:700; box-shadow:0 8px 30px rgba(0,0,0,0.6); cursor:pointer; border:none }
+      #wheel-face {
+        width: 90%;
+        height: auto;
+        transform: translateX(-50%);
+      }
+    }
 
-  /* scroll to top */
-  #toTop{ position:fixed; right:18px; bottom:20px; z-index:90; width:44px; height:44px; border-radius:50%; background:linear-gradient(90deg,var(--accent), #00c77f); display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 8px 30px rgba(0,0,0,0.6) }
+    @media screen and (max-width: 500px) {
+      #floating-buttons a {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+      }
 
-  /* specific media/image sections to prevent overlay */
-  .gallery-image {
-    width:100%;
-    display:flex;
-    justify-content:center;
-    margin:18px 0;
-    position:relative;
-    z-index:2;
-  }
-  .gallery-image img{
-    max-width:100%;
-    width:920px;
-    height:auto;
-    border-radius:12px;
-    box-shadow:0 18px 60px rgba(0,0,0,0.6);
-    border:1px solid rgba(255,255,255,0.03);
-  }
+      .video-side-image,
+      .video-frame {
+        max-width: 100%;
+      }
+    }
 
-  /* responsive */
-  @media (max-width:1000px){
-    .hero{ flex-direction:column; align-items:center }
-    .side{ order:2; width:100% }
-    .frame{ width:100%; aspect-ratio:16/9 }
-    footer{ flex-direction:column; gap:12px }
-    #wheel-face{ transform: none; width:520px; height:520px; }
-  }
-
-  a:focus{ outline:3px solid rgba(0,255,106,0.12); outline-offset:3px }
   </style>
 </head>
-
 <body>
-  <!-- background layers -->
-  <div class="bg-gradient"></div>
-  <canvas id="particles" class="particles"></canvas>
 
-  <!-- TIDIO chat (kept as you had) -->
-  <script src="//code.tidio.co/pogxgzfctrvbwtfr4amxo7x1kp2bxkml.js" async></script>
+<!-- ====== Rotating Wheel Start ====== -->
+<div id="wheel-widget">
+  <div id="wheel-face"></div>
 
-  <div class="wrap">
-    <!-- ===== HEADER (uses GitHub raw image link) ===== -->
-    <header aria-label="Hero header">
-      <div class="header-media" id="header-media"
-           style="background-image:url('https://raw.githubusercontent.com/AdnanSajjad786/portfolio-website/main/Adnan%20office%20Sitting%20close-up%20view.jpg')">
-      </div>
+  <script>
+    (function(){
+      const pages = [
+        {url:"https://sites.google.com/view/adnan-sajjad/home", label:"Home"},
+        {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad", label:"About"},
+        {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-cv-2025", label:"CV"},
+        {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-identity-card", label:"ID Card"},
+        {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-education", label:"Education"},
+        {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-work-experience", label:"Work"},
+        {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-travel-history", label:"Travel History"},
+        {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-company-concepts-travel-pvt-ltd", label:"Company"},
+        {url:"https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services", label:"Services"},
+        {url:"https://sites.google.com/view/adnan-sajjad/adnan-sajjad-portfolio", label:"Portfolio"},
+        {url:"https://sites.google.com/view/adnan-sajjad/contact-adnan-sajjad", label:"Contact"}
+      ];
 
-      <div class="header-overlay">
-        <h1 class="site-title">Adnan Sajjad — Online Professional Services Hub</h1>
-        <p class="site-sub">Financial Analyst • ERP & IFRS • Digital Marketing • Travel & Tourism • Real Estate</p>
+      const wheel=document.getElementById("wheel-face");
+      const count=pages.length;
+      const step=360/count;
 
-        <!-- chrome widget -->
-        <div id="chrome-widget" aria-hidden="false" style="position:relative;">
-          <div class="widget">
-            <div style="font-weight:700;color:#222;margin-right:8px">Live</div>
-            <a href="https://adnansajjad786.github.io/portfolio-website/" target="_blank" class="icon" style="background:#24292e">GH</a>
-            <a href="https://portfolio-website-hjo.pages.dev" target="_blank" class="icon" style="background:#f38020">CF</a>
-            <a href="https://profound-piroshki-d24591.netlify.app/" target="_blank" class="icon" style="background:#00c7b7">NL</a>
-            <a href="https://portfolio-website-e2y1c21ir-adnan-sajjads-projects-e2ed3907.vercel.app/" target="_blank" class="icon" style="background:#000">VC</a>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- ===== HERO (frame with decorative image) + side videos (unchanged visual) ===== -->
-    <section class="hero" id="hero">
-      <div class="frame" role="region" aria-label="Interactive profile frame">
-        <div class="frame-inner tilt" id="frameInner">
-          <!-- Use header image inside frame as fallback/visual (no Drive video to avoid embed issues) -->
-          <img src="https://raw.githubusercontent.com/AdnanSajjad786/portfolio-website/main/Adnan%20office%20Sitting%20close-up%20view.jpg" alt="Adnan office sitting view">
-        </div>
-      </div>
-
-      <!-- side column with intro & education videos (kept as embeds) -->
-      <aside class="side">
-        <div class="card">
-          <h2 class="section-title">🎬 Introduction</h2>
-          <div class="video-embed">
-            <iframe src="https://www.youtube.com/embed/WfYGV7auC1w" title="Intro" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:100%;"></iframe>
-          </div>
-          <p class="muted">Click to play — overview of my background and services.</p>
-        </div>
-
-        <div class="card">
-          <h2 class="section-title">🎓 Education</h2>
-          <div class="video-embed">
-            <iframe src="https://www.youtube.com/embed/TfBXOAW_Bt0" title="Education" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:100%;"></iframe>
-          </div>
-          <p class="muted">Qualifications, certifications, and training highlights.</p>
-        </div>
-      </aside>
-    </section>
-
-    <!-- ===== Gallery Image (Adnan-white-dress) - separate section so it won't overlap ===== -->
-    <section class="gallery-image" aria-label="Fashion image">
-      <img src="https://raw.githubusercontent.com/AdnanSajjad786/portfolio-website/main/Adnan-white-dress.png" alt="Adnan in white dress">
-    </section>
-
-    <!-- ===== Looping YouTube Video Section (separate, does not overlay wheel) ===== -->
-    <section id="loop-video" style="width:100%; background:#000; padding:28px 0; border-radius:12px;">
-      <div style="max-width:920px; margin:0 auto; text-align:center;">
-        <h2 style="color:var(--accent); font-family:monospace; margin:0 0 14px 0;">▶ Looping Video</h2>
-        <!-- Use YouTube embed with autoplay=1&mute=1&loop=1&playlist=<VIDEO_ID> for looping -->
-        <div style="border-radius:12px; overflow:hidden; box-shadow:0 18px 60px rgba(0,0,0,0.6)">
-          <iframe width="100%" height="520"
-            src="https://www.youtube.com/embed/o58ovhVZ600?autoplay=1&mute=1&loop=1&playlist=o58ovhVZ600&rel=0"
-            frameborder="0"
-            allow="autoplay; encrypted-media; picture-in-picture"
-            allowfullscreen
-            title="Loop Video"></iframe>
-        </div>
-      </div>
-    </section>
-
-    <!-- Typing heading widget above wheel (kept separate) -->
-    <div id="typing-heading">
-      <h2 id="typing-text"> </h2>
-    </div>
-
-    <!-- ===== Rotating Wheel Widget (kept and fixed) ===== -->
-    <div id="wheel-widget" aria-label="Rotating pages wheel">
-      <div id="wheel-face" style="position:absolute; top:50%; left:50%; transform:translateX(-50%) translateY(-50%);"></div>
-    </div>
-
-    <!-- ===== Services carousel + small intro ===== -->
-    <section class="card" id="services" style="display:flex; flex-direction:column; gap:12px">
-      <h2 class="section-title">What I Offer</h2>
-      <div id="carousel" style="display:flex; gap:12px; overflow:hidden; align-items:center;">
-        <!-- JS will populate service cards -->
-      </div>
-    </section>
-
-    <!-- ===== Contact & Calendly area ===== -->
-    <section class="contact-area">
-      <div class="contact-card contact-card-left">
-        <h2 class="section-title">📨 Contact Mr. Adnan Sajjad — Professional Services Inquiry</h2>
-
-        <div class="notice" role="alert">
-          Important Notice: Do Not Fill Contact Form!<br>
-          My services are offered strictly on a cash basis for foreign clients. Please note that my services are not available to religious figures (Moulanas, Qaris, Peers, Sayeds), NGOs, psychiatric institutions, or Pakistani clients. This applies regardless of whether they are from Pakistan or abroad. I apologize for any inconvenience.
-        </div>
-
-        <form action="https://formspree.io/f/xqadodqv" method="POST" id="contactForm">
-          <label for="name">Your Name:</label><br>
-          <input type="text" id="name" name="name" required><br><br>
-
-          <label for="email">Your Email Address:</label><br>
-          <input type="email" id="email" name="email" required><br><br>
-
-          <label for="enquiry">Your Enquiry:</label><br>
-          <textarea id="enquiry" name="enquiry" required></textarea><br><br>
-
-          <label for="message">Additional Message or Notes:</label><br>
-          <textarea id="message" name="message"></textarea><br><br>
-
-          <button type="submit">Send Message to Mr. Adnan Sajjad</button>
-          <p class="small">Your message will be sent to: adnansajjadnew786@gmail.com</p>
-        </form>
-
-        <div style="margin-top:12px;">
-          <a class="small footer-link" href="https://sites.google.com/view/adnan-sajjad/contact-adnan-sajjad" target="_blank">Contact Page on Google Sites (contains Google Meet / Teams / Skype details)</a>
-        </div>
-      </div>
-
-      <div class="calendly-box">
-        <iframe src="https://calendly.com/adnansajjadnew786/adnan-sajjad" style="width:100%;height:100%;border:0;" title="Calendly scheduling"></iframe>
-      </div>
-    </section>
-
-    <!-- Typing heading repeated small spacer (keeps original feel) -->
-    <div id="typing-heading" style="margin-top:8px;">
-      <h2 id="typing-text-2" style="display:none"> </h2>
-    </div>
-
-    <!-- ===== Google Business Section (map + review) ===== -->
-    <section class="google-business" aria-label="Google business">
-      <h3 style="color:var(--accent); margin:0 0 6px 0">📍 Google Business</h3>
-      <p class="small" style="color:var(--muted); margin:0 0 12px 0;">House No R-852, Road No 2, Sector 15 A/2, Buffer Zone, Karachi</p>
-      <div style="max-width:900px; margin:0 auto;">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.386265619886!2d67.03489631499496!3d24.93779828402439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb3390e91b61cb1%3A0x4df0e9f24ed109b0!2sSector%2015-A%202%20Buffer%20Zone%20North%20Karachi%20Town%2C%20Karachi%2C%20Karachi%20City%2C%20Sindh!5e0!3m2!1sen!2s!4v1696778455084!5m2!1sen!2s"
-          width="100%" height="300" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy">
-        </iframe>
-      </div>
-      <div style="margin-top:12px; text-align:center;">
-        <a href="https://g.page/r/CZ4tReAOrnVuEAE/review" target="_blank" class="float-btn" style="padding:10px 18px; border-radius:10px; background:linear-gradient(90deg,var(--accent),#00c77f); color:#00120b; text-decoration:none; font-weight:700;">⭐ Leave a Google Review</a>
-      </div>
-    </section>
-
-    <!-- ===== Footer sitemap (three columns) ===== -->
-    <footer>
-      <div class="footer-col">
-        <h4>Home & Portfolio</h4>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/home" target="_blank">Home</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-portfolio" target="_blank">Adnan Sajjad Portfolio</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-portfolio/photo-gallery" target="_blank">Photo Gallery</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-portfolio/clients" target="_blank">Clients</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-portfolio/testimonial" target="_blank">Testimonial</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/contact-adnan-sajjad" target="_blank">Contact Adnan Sajjad</a>
-      </div>
-
-      <div class="footer-col">
-        <h4>About</h4>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad" target="_blank">About Adnan Sajjad</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-cv-2025" target="_blank">Adnan Sajjad CV - 2025</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-identity-card" target="_blank">Identity Card</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-education" target="_blank">Education</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-work-experience" target="_blank">Work Experience</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-travel-history" target="_blank">Travel History</a>
-      </div>
-
-      <div class="footer-col">
-        <h4>Professional Services</h4>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services/hr-cv-services" target="_blank">HR & CV Services</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services/financial-analyst-services" target="_blank">Financial Analyst Services</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services/travel-tourism-services" target="_blank">Travel & Tourism Services</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services/real-estates-services" target="_blank">Real Estate Services</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services/digital-marketing-services" target="_blank">Digital Marketing Services</a>
-      </div>
-
-      <div style="width:100%; margin-top:14px; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
-        <div class="small">© Oct 2025 Adnan Sajjad. All Rights Reserved. Powered by GitHub • Cloudflare • Netlify • Vercel</div>
-        <div style="display:flex;gap:10px;align-items:center;">
-          <div id="visitor-count" class="small">Visitors: 0</div>
-          <div class="small">Analytics: <span id="gaStatus">inactive (replace G-XXXXXXXXXX)</span></div>
-        </div>
-      </div>
-    </footer>
-
-  </div> <!-- end wrap -->
-
-  <!-- floating action buttons -->
-  <div class="floating-actions" aria-hidden="false">
-    <button class="float-btn" id="openCalendly">📅 Schedule (Calendly)</button>
-    <button class="float-btn" id="openContact">✉️ Contact Page</button>
-    <a class="float-btn" href="https://linktr.ee/adnansajjad786" target="_blank">🔗 Linktree</a>
-  </div>
-
-  <!-- scroll to top -->
-  <div id="toTop" title="Scroll to top" aria-label="Scroll to top" role="button">
-    ↑
-  </div>
-
-<script>
-/* ---------- Utility & Config (updated) ---------- */
-const CONFIG = {
-  HEADER_IMG: 'https://raw.githubusercontent.com/AdnanSajjad786/portfolio-website/main/Adnan%20office%20Sitting%20close-up%20view.jpg',
-  DRESS_IMG: 'https://raw.githubusercontent.com/AdnanSajjad786/portfolio-website/main/Adnan-white-dress.png',
-  YT_LOOP: 'https://www.youtube.com/embed/o58ovhVZ600?autoplay=1&mute=1&loop=1&playlist=o58ovhVZ600&rel=0',
-  YT_INTRO: 'https://www.youtube.com/embed/WfYGV7auC1w',
-  YT_EDU: 'https://www.youtube.com/embed/TfBXOAW_Bt0',
-  FORM_ACTION: 'https://formspree.io/f/xqadodqv',
-  CALENDLY_URL: 'https://calendly.com/adnansajjadnew786/adnan-sajjad',
-  SITE_CONTACT_PAGE: 'https://sites.google.com/view/adnan-sajjad/contact-adnan-sajjad'
-}
-
-/* ---------- Particles (lightweight) ---------- */
-(function initParticles(){
-  const canvas=document.getElementById('particles');
-  if(!canvas) return;
-  const ctx=canvas.getContext('2d');
-  let w=canvas.width=innerWidth, h=canvas.height=innerHeight;
-  window.addEventListener('resize',()=>{ w=canvas.width=innerWidth; h=canvas.height=innerHeight; });
-  const particles=[]; const count=80;
-  for(let i=0;i<count;i++){
-    particles.push({
-      x:Math.random()*w, y:Math.random()*h,
-      r: Math.random()*1.6+0.6,
-      vx:(Math.random()-0.5)*0.2, vy:(Math.random()-0.5)*0.2,
-      alpha: 0.2 + Math.random()*0.6
-    });
-  }
-  function draw(){
-    ctx.clearRect(0,0,w,h);
-    for(const p of particles){
-      p.x += p.vx; p.y += p.vy;
-      if(p.x<0)p.x=w; if(p.x>w)p.x=0; if(p.y<0)p.y=h; if(p.y>h)p.y=0;
-      ctx.beginPath();
-      ctx.fillStyle = 'rgba(255,255,255,'+ (p.alpha*0.04) +')';
-      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fill();
-    }
-    requestAnimationFrame(draw);
-  }
-  draw();
-})();
-
-/* ---------- Wheel items (create wheel) ---------- */
-(function createWheel(){
-  const pages = [
-    {url:"https://sites.google.com/view/adnan-sajjad/home", label:"Home"},
-    {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad", label:"About"},
-    {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-cv-2025", label:"CV"},
-    {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-identity-card", label:"ID Card"},
-    {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-education", label:"Education"},
-    {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-work-experience", label:"Work"},
-    {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-travel-history", label:"Travel"},
-    {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-company-concepts-travel-pvt-ltd", label:"Company"},
-    {url:"https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services", label:"Services"},
-    {url:"https://sites.google.com/view/adnan-sajjad/adnan-sajjad-portfolio", label:"Portfolio"},
-    {url:"https://sites.google.com/view/adnan-sajjad/contact-adnan-sajjad", label:"Contact"}
-  ];
-  const wheel = document.getElementById('wheel-face');
-  if(!wheel) return;
-  const count = pages.length;
-  const step = 360 / count;
-  pages.forEach((p,i)=>{
-    const card = document.createElement('div');
-    card.className='wheel-item';
-    const ang = i * step;
-    // position using rotateY + translateZ
-    card.style.transform = `rotateY(${ang}deg) translateZ(325px)`;
-    card.innerHTML = `<a href="${p.url}" target="_blank" rel="noopener">${p.label}</a>`;
-    wheel.appendChild(card);
-  });
-})();
-
-/* ---------- tilt on mouse move for frameInner (visual only) ---------- */
-(function tiltLogic(){
-  const f = document.getElementById('frameInner');
-  if(!f) return;
-  f.addEventListener('mousemove', e=>{
-    const r = f.getBoundingClientRect();
-    const cx = r.left + r.width/2;
-    const cy = r.top + r.height/2;
-    const dx = e.clientX - cx;
-    const dy = e.clientY - cy;
-    const rx = (dy / r.height) * -7;
-    const ry = (dx / r.width) * 7;
-    f.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`;
-  });
-  f.addEventListener('mouseleave', ()=> f.style.transform='rotateX(0deg) rotateY(0deg)');
-})();
-
-/* ---------- Services carousel ---------- */
-(function servicesCarousel(){
-  const services = [
-    'Financial Analyst Services',
-    'ERP & IFRS Accounting',
-    'Travel & Tourism Packages',
-    'Real Estate Consulting',
-    'Digital Marketing Solutions',
-    'Student Scholarship Services'
-  ];
-  const c = document.getElementById('carousel');
-  if(!c) return;
-  services.forEach((s,i)=>{
-    const card = document.createElement('div');
-    card.style.minWidth='220px';
-    card.style.padding='12px';
-    card.style.borderRadius='12px';
-    card.style.background='linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12))';
-    card.style.border='1px solid rgba(255,255,255,0.03)';
-    card.style.boxShadow='0 8px 20px rgba(0,0,0,0.45)';
-    card.innerHTML = `<strong style="color:var(--accent)">${s}</strong><p style="margin:8px 0 0 0;color:var(--muted);font-size:0.92rem">Professional ${s.toLowerCase()}</p>`;
-    c.appendChild(card);
-  });
-
-  // simple auto-scroll
-  let pos=0;
-  setInterval(()=>{
-    if(!c) return;
-    pos += 240;
-    if(pos > c.scrollWidth - c.clientWidth) pos = 0;
-    c.scrollTo({left:pos, behavior:'smooth'});
-  },3000);
-})();
-
-/* ---------- typing heading widget ---------- */
-(function typingWidget(){
-  const text = "🌐 Explore Adnan Sajjad Website — Click Rotating Page Card";
-  let i=0;
-  const el = document.getElementById('typing-text');
-  if(!el) return;
-  function typeEffect(){
-    if(i < text.length){
-      el.innerText = text.substring(0,i+1);
-      i++;
-      setTimeout(typeEffect,80);
-    } else {
-      i=0; setTimeout(typeEffect,2200);
-    }
-  }
-  typeEffect();
-})();
-
-/* ---------- floating actions ---------- */
-document.getElementById('openCalendly').addEventListener('click',()=> window.open(CONFIG.CALENDLY_URL,'_blank'));
-document.getElementById('openContact').addEventListener('click',()=> window.open(CONFIG.SITE_CONTACT_PAGE,'_blank'));
-
-/* ---------- scroll to top ---------- */
-(function toTop(){
-  const btn = document.getElementById('toTop');
-  if(!btn) return;
-  btn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
-  window.addEventListener('scroll', ()=> btn.style.display = window.scrollY > 200 ? 'flex' : 'none');
-})();
-
-/* ---------- Visitor counter (client-side simple placeholder) ---------- */
-(function visitorCounter(){
-  const key='adnan_visitors_v1';
-  let cnt = localStorage.getItem(key);
-  if(!cnt){ cnt = Math.floor(Math.random()*4200) + 300; localStorage.setItem(key,cnt); }
-  document.getElementById('visitor-count').innerText = 'Visitors: ' + cnt;
-})();
-
-/* ---------- Simple GA placeholder (replace with actual ID) ---------- */
-(function addGA(){
-  const GA_ID = 'G-XXXXXXXXXX'; // <-- replace with your real Google Analytics measurement id
-  if(GA_ID && GA_ID !== 'G-XXXXXXXXXX'){
-    const s=document.createElement('script');
-    s.async=true; s.src=`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
-    document.head.appendChild(s);
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments)}
-    gtag('js', new Date());
-    gtag('config', GA_ID);
-    document.getElementById('gaStatus').innerText = GA_ID;
-  }
-})();
-
-/* ---------- ensure form sends via Formspree & visual success ---------- */
-document.getElementById('contactForm').addEventListener('submit', function(e){
-  // show a quick message and allow default behaviour to Formspree
-  alert('Thank you — your message will be sent. Please check confirmation email from Formspree.');
-});
-
-/* ---------- Accessibility: allow keyboard to focus wheel items ---------- */
-(function keyboardFocus(){
-  // this will work once wheel items exist
-  document.addEventListener('DOMContentLoaded', ()=>{
-    const items = document.querySelectorAll('.wheel-item a');
-    items.forEach(a=>{
-      a.addEventListener('keydown', e=>{
-        if(e.key === 'Enter') a.click();
+      pages.forEach((p,i)=>{
+        const card=document.createElement("div");
+        card.className="wheel-item";
+        const ang=i*step;
+        card.style.transform=`rotateY(${ang}deg) translateZ(325px)`; 
+        card.innerHTML=`<a href="${p.url}" target="_blank">${p.label}</a>`;
+        wheel.appendChild(card);
       });
-    });
+    })();
+  </script>
+</div>
+<!-- ====== Rotating Wheel End ====== -->
+
+<!-- ====== First Video (autoplay) ====== -->
+<div style="text-align:center; margin-top:20px;">
+  <iframe class="video-frame" src="https://www.youtube.com/embed/o58ovhVZ600?autoplay=1&mute=1&loop=1&playlist=o58ovhVZ600" allow="autoplay" allowfullscreen></iframe>
+</div>
+
+<!-- ====== Video container with side image ====== -->
+<div class="video-container">
+  <img class="video-side-image" src="https://github.com/AdnanSajjad786/portfolio-website/blob/main/Adnan-white-dress.png?raw=true" alt="Adnan Sajjad">
+
+  <div style="display:flex; flex-direction:column; gap:10px;">
+    <iframe class="video-frame" src="https://www.youtube.com/embed/WfYGV7auC1w" allowfullscreen></iframe>
+    <iframe class="video-frame" src="https://www.youtube.com/embed/TfBXOAW_Bt0" allowfullscreen></iframe>
+  </div>
+</div>
+
+<!-- ====== Floating Right Side Buttons ====== -->
+<div id="floating-buttons">
+  <a href="https://calendly.com/adnansajjadnew786/adnan-sajjad" target="_blank">Calendly</a>
+  <a href="https://sites.google.com/view/adnan-sajjad/contact-adnan-sajjad" target="_blank">Contact</a>
+  <a href="https://linktr.ee/adnansajjad786" target="_blank">LinkTree</a>
+  <a href="#" id="chatbot-button">Chat Bot</a>
+</div>
+
+<!-- ====== Chat Bot Script ====== -->
+<script>
+  document.getElementById("chatbot-button").addEventListener("click", function() {
+    window.open("https://your-chatbot-link.com", "_blank", "width=400,height=600");
   });
-})();
 </script>
 
 </body>
