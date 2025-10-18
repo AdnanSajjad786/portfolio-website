@@ -1,241 +1,394 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Adnan Sajjad Portfolio</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Adnan Sajjad – Online Professional Services Hub</title>
+  <meta name="description" content="Adnan Sajjad — Financial Analyst, Digital Marketer, Travel & Tourism, Real Estate and Freelancing services.">
+  <meta name="keywords" content="Adnan Sajjad, Financial Analyst, ERP, IFRS, Digital Marketing, Travel, Real Estate, Portfolio">
+  <meta name="author" content="Adnan Sajjad">
+  <meta name="theme-color" content="#071017">
+
+  <link rel="icon" href="https://raw.githubusercontent.com/AdnanSajjad786/portfolio-website/main/favicon.png" />
+
   <style>
-    body {
+    :root{
+      --bg-1:#020406;
+      --bg-2:#071019;
+      --accent:#00ff6a;
+      --muted:#9aa6b2;
+      --card:#071224cc;
+      --glass: rgba(255,255,255,0.04);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
       margin:0;
-      padding:0;
-      font-family: Arial, sans-serif;
-      background-color:#010f08;
-      color:#00ff6a;
+      font-family: Inter, Poppins, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, monospace;
+      background: linear-gradient(120deg,#021021 0%, #041326 40%, #071019 100%);
+      color:#e6f1ee;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
       overflow-x:hidden;
+      scroll-behavior:smooth;
     }
 
-    /* General iframe/video styling */
-    .video-frame {
-      width:400px;
-      height:225px;
-      border:none;
-      margin:10px;
-    }
-
-    /* Container for two videos + side image */
-    .video-container {
-      display:flex;
-      justify-content:center;
-      align-items:flex-start;
-      gap:20px;
-      flex-wrap:wrap;
-      margin:20px 0;
-    }
-
-    .video-side-image {
-      max-width:400px;
-      max-height:225px;
-      object-fit:contain;
-      margin-top:0;
-    }
-
-    /* Right side floating buttons */
-    #floating-buttons {
+    .bg-gradient{
       position:fixed;
-      right:0;
-      top:50%;
-      transform:translateY(-50%);
+      inset:0;
+      z-index:-100;
+      background: linear-gradient(120deg,#001219,#04202b 40%,#041426);
+      background-size:400% 400%;
+      animation:gradShift 18s ease infinite;
+      filter: saturate(110%);
+    }
+    @keyframes gradShift{
+      0%{background-position:0% 50%}
+      50%{background-position:100% 50%}
+      100%{background-position:0% 50%}
+    }
+    .particles{
+      position:fixed; inset:0; z-index:-90; pointer-events:none;
+      background: transparent;
+    }
+
+    .wrap{
+      max-width:1200px;
+      margin:30px auto;
+      padding:22px;
       display:flex;
       flex-direction:column;
-      gap:10px;
-      z-index:9999;
+      gap:20px;
     }
 
-    #floating-buttons a {
-      background:#00ff6a;
-      color:#010f08;
-      padding:10px 15px;
-      border-radius:5px 0 0 5px;
-      text-decoration:none;
-      font-weight:bold;
-      text-align:center;
-      display:block;
-    }
-
-    #floating-buttons a:hover {
-      background:#ffffff;
-      color:#010f08;
-    }
-
-    /* Rotating wheel styling */
-    #wheel-widget {
-      width:100%;
-      height:650px;
-      background:#010f08;
-      font-family:monospace;
-      perspective:2000px;
-      box-shadow: inset 0 0 30px rgba(0,255,100,0.2);
-      margin:0;
-      padding:0;
-      overflow:hidden;
+    header{
       position:relative;
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow:0 10px 40px rgba(0,0,0,0.6);
+      background:linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.28));
+      border:1px solid rgba(255,255,255,0.03);
     }
-
-    #wheel-face {
-      width:650px;
-      height:650px;
-      position:absolute;
-      top:0;
-      left:50%;
-      transform:translateX(-50%);
-      transform-style:preserve-3d;
-      animation:spin 70s linear infinite;
-    }
-
-    @keyframes spin {
-      from { transform:translateX(-50%) rotateY(0deg); }
-      to   { transform:translateX(-50%) rotateY(360deg); }
-    }
-
-    .wheel-item {
-      position:absolute;
-      top:50%; left:50%;
-      width:160px;
-      height:55px;
-      margin:-27px -80px;
-      background:rgba(0,255,106,0.08);
-      border:2px solid rgba(0,255,106,0.6);
-      border-radius:10px;
+    .header-media{
+      width:100%;
+      height:340px;
       display:flex;
       align-items:center;
       justify-content:center;
-      font-size:0.8rem;
-      font-weight:600;
-      text-align:center;
-      overflow:hidden;
-      text-shadow:0 0 4px #00ff6a;
-      backface-visibility:hidden;
-      padding:4px;
+      background-size:cover;
+      background-position:center;
+    }
+    .header-overlay{
+      position:absolute;
+      inset:0;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      padding:18px;
+      gap:12px;
+      background:linear-gradient(180deg, rgba(2,6,23,0.18), rgba(2,6,23,0.38));
+    }
+    .site-title{
+      font-size:1.8rem;
+      font-weight:700;
+      color:var(--accent);
+      text-shadow:0 0 12px rgba(0,255,106,0.12), 0 6px 30px rgba(0,0,0,0.8);
+      letter-spacing:0.6px;
+      margin:0;
+    }
+    .site-sub{
+      color:var(--muted);
+      margin:0;
+      font-size:0.95rem;
     }
 
-    .wheel-item a {
-      color:#00ff6a;
-      text-decoration:none;
-      display:block;
+    #chrome-widget{position:absolute; right:16px; bottom:16px; z-index:40}
+    #chrome-widget .widget{
+      backdrop-filter: blur(6px);
+      padding:10px 14px;
+      border-radius:18px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      box-shadow:0 8px 30px rgba(0,0,0,0.5);
+      border:1px solid rgba(255,255,255,0.04);
+      background:linear-gradient(145deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    }
+    #chrome-widget .icon{
+      width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;
+      box-shadow:0 3px 8px rgba(0,0,0,0.35);
+      transition:transform .18s;
+    }
+    #chrome-widget .icon:hover{transform:scale(1.12)}
+
+    .hero{
+      display:flex;
+      gap:20px;
+      align-items:flex-start;
+      flex-wrap:wrap;
+      justify-content:center;
+    }
+    .frame{
+      width:920px;
+      max-width:100%;
+      aspect-ratio:16/9;
+      border-radius:18px;
+      overflow:hidden;
+      position:relative;
+      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.3));
+      box-shadow:0 18px 60px rgba(3,10,20,0.7), inset 0 1px 0 rgba(255,255,255,0.02);
+      border: 1px solid rgba(0,255,106,0.06);
+    }
+    .frame-inner{
+      position:absolute; inset:12px; border-radius:12px; overflow:hidden; background:rgba(4,9,12,0.45);
+      display:flex; align-items:center; justify-content:center; flex-direction:column;
+      backdrop-filter: blur(4px);
+    }
+    .frame img{
       width:100%;
-      white-space:nowrap;
-      overflow:hidden;
-      text-overflow:ellipsis;
+      height:100%;
+      object-fit:cover;
+      display:block;
     }
 
-    .wheel-item:hover {
-      background:rgba(0,255,106,0.25);
-      transform:scale(1.1);
-      z-index:100;
+    #wheel-widget{ width:100%; height:650px; position:relative; display:flex; align-items:center; justify-content:center; }
+    #wheel-face{ width:650px; height:650px; transform-style:preserve-3d; animation:spin 70s linear infinite; }
+    @keyframes spin{ from{ transform:translateX(-50%) rotateY(0deg); } to{ transform:translateX(-50%) rotateY(360deg); } }
+    .wheel-item{
+      position:absolute; top:50%; left:50%; width:170px; height:56px; margin:-27px -85px;
+      background: linear-gradient(180deg, rgba(0,255,106,0.06), rgba(0,255,106,0.02));
+      border:1px solid rgba(0,255,106,0.18);
+      border-radius:10px; display:flex; align-items:center; justify-content:center;
+      font-weight:700; color:var(--accent); text-shadow:0 0 6px rgba(0,255,106,0.06);
+      backface-visibility:hidden; transition:transform .25s ease, background .2s;
+      cursor:pointer; padding:4px;
+    }
+    .wheel-item a{ color:var(--accent); text-decoration:none; font-size:0.88rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; width:100%; text-align:center;}
+    .wheel-item:hover{ transform:scale(1.08) translateZ(20px); background:rgba(0,255,106,0.12); z-index:150; }
+
+    .side { width:360px; max-width:100%; display:flex; flex-direction:column; gap:16px; }
+    .card { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,0.03); box-shadow:0 8px 24px rgba(2,8,20,0.6); }
+    .video-embed { width:100%; aspect-ratio:16/9; border-radius:10px; overflow:hidden; background:#000 }
+
+    h2.section-title{ margin:0 0 8px 0; color:var(--accent); font-size:1.1rem; letter-spacing:0.4px }
+    p.muted{ color:var(--muted); margin:0; font-size:0.94rem }
+
+    #typing-heading{ width:100%; text-align:center; background:#010f08; padding:18px 0; margin-top:18px; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.45)}
+    #typing-text{ font-size:1.15rem; font-weight:700; color:var(--accent); margin:0; font-family:monospace; text-shadow:0 0 10px rgba(0,255,106,0.12)}
+
+    .contact-area{ display:flex; gap:18px; flex-wrap:wrap; align-items:flex-start; justify-content:space-between; margin-top:10px }
+    .contact-card{ flex:1 1 520px; min-width:300px; background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.55)); padding:18px; border-radius:12px; border:1px solid rgba(255,255,255,0.03) }
+    .notice{ background:#b20b0b; color:#fff; font-weight:700; padding:12px; border-radius:8px; margin-bottom:12px }
+    form label{ color:var(--muted); font-size:0.95rem }
+    input[type=text], input[type=email], textarea{ width:100%; padding:12px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:#e7f8ef; margin-top:6px }
+    button[type=submit]{ padding:12px 20px; background:linear-gradient(90deg,var(--accent), #00c77f); color:#002017; border:none; font-weight:700; border-radius:10px; cursor:pointer }
+
+    .calendly-box{ flex:1 1 360px; min-width:300px; height:520px; border-radius:12px; overflow:hidden; border:1px solid rgba(255,255,255,0.03); background:#020814; }
+
+    .google-business { background: linear-gradient(135deg,#f0f4ff00 0%, #d9e7ff00 100%); color:#cfeee2; padding:18px; border-radius:12px; border:1px solid rgba(255,255,255,0.03); }
+
+    footer{ margin-top:28px; padding:20px; border-radius:12px; background:linear-gradient(180deg, rgba(0,0,0,0.6), rgba(3,8,12,0.9)); color:#cfeee2; display:flex; gap:20px; flex-wrap:wrap; align-items:flex-start; justify-content:space-between }
+    .footer-col{ width:30%; min-width:220px; }
+    .footer-col h4{ color:var(--accent); margin:0 0 8px 0 }
+    .footer-link{ display:block; color:#cfeee2; text-decoration:none; font-size:0.92rem; margin:4px 0 }
+    .small{ font-size:0.85rem; color:var(--muted) }
+
+    .floating-actions{ position:fixed; right:20px; bottom:90px; display:flex; flex-direction:column; gap:12px; z-index:80 }
+    .float-btn{ background:linear-gradient(90deg,var(--accent), #00c77f); color:#00120b; padding:12px 14px; border-radius:10px; font-weight:700; box-shadow:0 8px 30px rgba(0,0,0,0.6); cursor:pointer; border:none }
+
+    #toTop{ position:fixed; right:18px; bottom:20px; z-index:90; width:44px; height:44px; border-radius:50%; background:linear-gradient(90deg,var(--accent), #00c77f); display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 8px 30px rgba(0,0,0,0.6) }
+
+    .gallery-image { width:100%; display:flex; justify-content:center; margin:18px 0; position:relative; z-index:2; }
+    .gallery-image img{ max-width:100%; width:920px; height:auto; border-radius:12px; box-shadow:0 18px 60px rgba(0,0,0,0.6); border:1px solid rgba(255,255,255,0.03); }
+
+    @media (max-width:1000px){
+      .hero{ flex-direction:column; align-items:center }
+      .side{ order:2; width:100% }
+      .frame{ width:100%; aspect-ratio:16/9 }
+      footer{ flex-direction:column; gap:12px }
+      #wheel-face{ transform: none; width:520px; height:520px; }
     }
 
-    /* Responsive adjustments */
-    @media screen and (max-width: 900px) {
-      .video-container {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .video-side-image,
-      .video-frame {
-        max-width: 90%;
-        height: auto;
-      }
-
-      #wheel-face {
-        width: 90%;
-        height: auto;
-        transform: translateX(-50%);
-      }
+    @media (max-width:500px){
+      #chrome-widget{ right:8px; bottom:8px }
+      .frame{ width:100% }
+      .floating-actions{ right:12px; bottom:70px }
+      #toTop{ width:36px; height:36px }
     }
 
-    @media screen and (max-width: 500px) {
-      #floating-buttons a {
-        padding: 8px 12px;
-        font-size: 0.85rem;
-      }
-
-      .video-side-image,
-      .video-frame {
-        max-width: 100%;
-      }
-    }
-
+    a:focus{ outline:3px solid rgba(0,255,106,0.12); outline-offset:3px }
   </style>
 </head>
 <body>
+  <div class="bg-gradient"></div>
+  <canvas id="particles" class="particles"></canvas>
 
-<!-- ====== Rotating Wheel Start ====== -->
-<div id="wheel-widget">
-  <div id="wheel-face"></div>
+  <script src="//code.tidio.co/pogxgzfctrvbwtfr4amxo7x1kp2bxkml.js" async></script>
 
-  <script>
-    (function(){
-      const pages = [
-        {url:"https://sites.google.com/view/adnan-sajjad/home", label:"Home"},
-        {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad", label:"About"},
-        {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-cv-2025", label:"CV"},
-        {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-identity-card", label:"ID Card"},
-        {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-education", label:"Education"},
-        {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-work-experience", label:"Work"},
-        {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-travel-history", label:"Travel History"},
-        {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-company-concepts-travel-pvt-ltd", label:"Company"},
-        {url:"https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services", label:"Services"},
-        {url:"https://sites.google.com/view/adnan-sajjad/adnan-sajjad-portfolio", label:"Portfolio"},
-        {url:"https://sites.google.com/view/adnan-sajjad/contact-adnan-sajjad", label:"Contact"}
-      ];
+  <div class="wrap">
+    <!-- ===== HEADER ===== -->
+    <header aria-label="Hero header">
+      <div class="header-media" id="header-media" style="background-image:url('https://raw.githubusercontent.com/AdnanSajjad786/portfolio-website/main/Adnan%20office%20Sitting%20close-up%20view.jpg')"></div>
+      <div class="header-overlay">
+        <h1 class="site-title">Adnan Sajjad</h1>
+        <p class="site-sub">Financial Analyst, Digital Marketer & Freelancer</p>
+      </div>
+      <div id="chrome-widget">
+        <div class="widget">
+          <div class="icon">💬</div>
+          <span>Quick Chat</span>
+        </div>
+      </div>
+    </header>
 
-      const wheel=document.getElementById("wheel-face");
-      const count=pages.length;
-      const step=360/count;
+    <!-- ===== HERO FRAME & SIDE VIDEOS ===== -->
+    <div class="hero">
+      <div class="frame">
+        <div class="frame-inner">
+          <video autoplay muted loop style="width:100%; height:100%; object-fit:cover;">
+            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+          </video>
+        </div>
+      </div>
 
-      pages.forEach((p,i)=>{
-        const card=document.createElement("div");
-        card.className="wheel-item";
-        const ang=i*step;
-        card.style.transform=`rotateY(${ang}deg) translateZ(325px)`; 
-        card.innerHTML=`<a href="${p.url}" target="_blank">${p.label}</a>`;
-        wheel.appendChild(card);
-      });
-    })();
-  </script>
-</div>
-<!-- ====== Rotating Wheel End ====== -->
+      <div class="side">
+        <div class="card video-embed">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Side Video 1" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="card video-embed">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/3JZ_D3ELwOQ" title="Side Video 2" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
 
-<!-- ====== First Video (autoplay) ====== -->
-<div style="text-align:center; margin-top:20px;">
-  <iframe class="video-frame" src="https://www.youtube.com/embed/o58ovhVZ600?autoplay=1&mute=1&loop=1&playlist=o58ovhVZ600" allow="autoplay" allowfullscreen></iframe>
-</div>
+    <!-- ===== TYPING HEADING ===== -->
+    <div id="typing-heading">
+      <p id="typing-text"></p>
+    </div>
 
-<!-- ====== Video container with side image ====== -->
-<div class="video-container">
-  <img class="video-side-image" src="https://github.com/AdnanSajjad786/portfolio-website/blob/main/Adnan-white-dress.png?raw=true" alt="Adnan Sajjad">
+    <!-- ===== ROTATING WHEEL ===== -->
+    <div id="wheel-widget">
+      <div id="wheel-face">
+        <div class="wheel-item" style="transform: rotateY(0deg) translateZ(300px)"><a href="#services">Services</a></div>
+        <div class="wheel-item" style="transform: rotateY(60deg) translateZ(300px)"><a href="#portfolio">Portfolio</a></div>
+        <div class="wheel-item" style="transform: rotateY(120deg) translateZ(300px)"><a href="#about">About Me</a></div>
+        <div class="wheel-item" style="transform: rotateY(180deg) translateZ(300px)"><a href="#contact">Contact</a></div>
+        <div class="wheel-item" style="transform: rotateY(240deg) translateZ(300px)"><a href="#gallery">Gallery</a></div>
+        <div class="wheel-item" style="transform: rotateY(300deg) translateZ(300px)"><a href="#reviews">Reviews</a></div>
+      </div>
+    </div>
 
-  <div style="display:flex; flex-direction:column; gap:10px;">
-    <iframe class="video-frame" src="https://www.youtube.com/embed/WfYGV7auC1w" allowfullscreen></iframe>
-    <iframe class="video-frame" src="https://www.youtube.com/embed/TfBXOAW_Bt0" allowfullscreen></iframe>
+    <!-- ===== CONTACT & CALENDLY ===== -->
+    <div class="contact-area" id="contact">
+      <div class="contact-card">
+        <h2 class="section-title">Contact Me</h2>
+        <p class="muted">Send a message and I will get back within 24 hours.</p>
+        <div id="form-message" class="notice" style="display:none">Message sent successfully!</div>
+        <form id="contact-form">
+          <label for="name">Name</label>
+          <input type="text" id="name" required>
+          <label for="email">Email</label>
+          <input type="email" id="email" required>
+          <label for="message">Message</label>
+          <textarea id="message" rows="4" required></textarea>
+          <button type="submit">Send</button>
+        </form>
+      </div>
+      <div class="calendly-box">
+        <iframe src="https://calendly.com/adnansajjad786" width="100%" height="100%" frameborder="0"></iframe>
+      </div>
+    </div>
+
+    <!-- ===== GOOGLE BUSINESS ===== -->
+    <div class="google-business">
+      <h2 class="section-title">Google Business</h2>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!..." width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+
+    <!-- ===== GALLERY ===== -->
+    <div id="gallery">
+      <div class="gallery-image">
+        <img src="https://raw.githubusercontent.com/AdnanSajjad786/portfolio-website/main/gallery1.jpg" alt="Gallery Image 1">
+      </div>
+      <div class="gallery-image">
+        <img src="https://raw.githubusercontent.com/AdnanSajjad786/portfolio-website/main/gallery2.jpg" alt="Gallery Image 2">
+      </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="#services" class="footer-link">Services</a>
+        <a href="#portfolio" class="footer-link">Portfolio</a>
+        <a href="#contact" class="footer-link">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Follow Me</h4>
+        <a href="https://www.linkedin.com/in/adnansajjad786" class="footer-link">LinkedIn</a>
+        <a href="https://www.instagram.com/adnansajjad786" class="footer-link">Instagram</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <span class="footer-link">Email: info@adnansajjad.com</span>
+        <span class="footer-link">Phone: +971-55-1234567</span>
+      </div>
+      <div class="small">© 2025 Adnan Sajjad. All Rights Reserved.</div>
+    </footer>
+
+    <!-- ===== FLOATING BUTTONS ===== -->
+    <div class="floating-actions">
+      <button class="float-btn" onclick="window.location.href='#contact'">Contact</button>
+      <button class="float-btn" onclick="window.location.href='#services'">Services</button>
+    </div>
+
+    <div id="toTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
   </div>
-</div>
 
-<!-- ====== Floating Right Side Buttons ====== -->
-<div id="floating-buttons">
-  <a href="https://calendly.com/adnansajjadnew786/adnan-sajjad" target="_blank">Calendly</a>
-  <a href="https://sites.google.com/view/adnan-sajjad/contact-adnan-sajjad" target="_blank">Contact</a>
-  <a href="https://linktr.ee/adnansajjad786" target="_blank">LinkTree</a>
-  <a href="#" id="chatbot-button">Chat Bot</a>
-</div>
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // TYPING EFFECT
+    const typingEl = document.getElementById('typing-text');
+    const texts = ["Financial Analyst", "Digital Marketer", "Travel & Tourism Expert", "Real Estate Consultant", "Freelancer"];
+    let i=0, j=0, isDeleting=false, speed=120;
+    function type(){
+      let txt = texts[i];
+      if(isDeleting){
+        typingEl.textContent = txt.substring(0,j--);
+      } else {
+        typingEl.textContent = txt.substring(0,j++);
+      }
+      if(!isDeleting && j===txt.length){isDeleting=true; speed=50;}
+      else if(isDeleting && j===0){isDeleting=false; i=(i+1)%texts.length; speed=120;}
+      setTimeout(type,speed);
+    }
+    type();
 
-<!-- ====== Chat Bot Script ====== -->
-<script>
-  document.getElementById("chatbot-button").addEventListener("click", function() {
-    window.open("https://your-chatbot-link.com", "_blank", "width=400,height=600");
-  });
-</script>
+    // CONTACT FORM
+    const form = document.getElementById('contact-form');
+    const formMessage = document.getElementById('form-message');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      formMessage.style.display = 'block';
+      setTimeout(()=>{ formMessage.style.display='none'; form.reset(); }, 3500);
+    });
 
+    // PARTICLE BACKGROUND
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    let particlesArray=[];
+    function resizeCanvas(){ canvas.width=window.innerWidth; canvas.height=window.innerHeight; }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+    class Particle{
+      constructor(){ this.x=Math.random()*canvas.width; this.y=Math.random()*canvas.height; this.size=Math.random()*2+0.5; this.speedX=Math.random()*0.5-0.25; this.speedY=Math.random()*0.5-0.25; }
+      update(){ this.x+=this.speedX; this.y+=this.speedY; if(this.x>canvas.width)this.x=0; if(this.x<0)this.x=canvas.width; if(this.y>canvas.height)this.y=0; if(this.y<0)this.y=canvas.height;}
+      draw(){ ctx.fillStyle='rgba(0,255,106,0.6)'; ctx.beginPath(); ctx.arc(this.x,this.y,this.size,0,Math.PI*2); ctx.fill(); }
+    }
+    function initParticles(){ particlesArray=[]; for(let i=0;i<120;i++){ particlesArray.push(new Particle()); } }
+    function animateParticles(){ ctx.clearRect(0,0,canvas.width,canvas.height); particlesArray.forEach(p=>{p.update(); p.draw();}); requestAnimationFrame(animateParticles);}
+    initParticles(); animateParticles();
+  </script>
 </body>
 </html>
