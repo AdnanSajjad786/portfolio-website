@@ -1,674 +1,1026 @@
-look this my github my website index.html code i want to fix some this from it "<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Adnan Sajjad – Online Professional Services Hub</title>
-  <meta name="description" content="Adnan Sajjad — Financial Analyst, Digital Marketer, Travel & Tourism, Real Estate and Freelancing services.">
-  <meta name="keywords" content="Adnan Sajjad, Financial Analyst, ERP, IFRS, Digital Marketing, Travel, Real Estate, Portfolio">
-  <meta name="author" content="Adnan Sajjad">
-  <meta name="theme-color" content="#071017">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adnan Sajjad | Financial Analyst & Digital Marketer</title>
+    <meta name="description" content="Adnan Sajjad — Financial Analyst, Digital Marketer, Travel & Tourism, Real Estate and Freelancing services.">
+    <meta name="keywords" content="Adnan Sajjad, Financial Analyst, ERP, IFRS, Digital Marketing, Travel, Real Estate, Portfolio">
+    <meta name="author" content="Adnan Sajjad">
+    <link rel="icon" href="https://raw.githubusercontent.com/AdnanSajjad786/portfolio-website/main/favicon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* ===== VARIABLES & RESET ===== */
+        :root {
+            --primary: #00ff6a;
+            --primary-dark: #00c77f;
+            --secondary: #071019;
+            --accent: #3498db;
+            --light: #e6f1ee;
+            --dark: #020406;
+            --muted: #9aa6b2;
+            --card-bg: rgba(7, 18, 36, 0.8);
+            --transition: all 0.3s ease;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --radius: 12px;
+        }
 
-  <!-- Fav/icon (kept as your Drive icon if desired) -->
-  <link rel="icon" href="https://raw.githubusercontent.com/AdnanSajjad786/portfolio-website/main/favicon.png" />
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  <style>
-  /* ---------- Reset & base ---------- */
-  :root{
-    --bg-1:#020406;
-    --bg-2:#071019;
-    --accent:#00ff6a; /* neon green highlight */
-    --muted:#9aa6b2;
-    --card:#071224cc;
-    --glass: rgba(255,255,255,0.04);
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0;
-    font-family: Inter, Poppins, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, monospace;
-    background: linear-gradient(120deg,#021021 0%, #041326 40%, #071019 100%);
-    color:#e6f1ee;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    overflow-x:hidden;
-    scroll-behavior:smooth;
-  }
+        html {
+            scroll-behavior: smooth;
+        }
 
-  /* ---------- animated gradient + particles ---------- */
-  .bg-gradient{
-    position:fixed;
-    inset:0;
-    z-index:-100;
-    background: linear-gradient(120deg,#001219,#04202b 40%,#041426);
-    background-size:400% 400%;
-    animation:gradShift 18s ease infinite;
-    filter: saturate(110%);
-  }
-  @keyframes gradShift{
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-  }
-  .particles{
-    position:fixed; inset:0; z-index:-90; pointer-events:none;
-    background: transparent;
-  }
+        body {
+            font-family: 'Inter', 'Poppins', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #021021 0%, #041326 40%, #071019 100%);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
 
-  /* ---------- page container ---------- */
-  .wrap{
-    max-width:1200px;
-    margin:30px auto;
-    padding:22px;
-    display:flex;
-    flex-direction:column;
-    gap:20px;
-  }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-  /* ---------- header ---------- */
-  header{
-    position:relative;
-    border-radius:12px;
-    overflow:hidden;
-    box-shadow:0 10px 40px rgba(0,0,0,0.6);
-    background:linear-gradient(180deg, rgba(0,0,0,0.12), rgba(0,0,0,0.28));
-    border:1px solid rgba(255,255,255,0.03);
-  }
-  .header-media{
-    width:100%;
-    height:340px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background-size:cover;
-    background-position:center;
-  }
-  .header-overlay{
-    position:absolute;
-    inset:0;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    padding:18px;
-    gap:12px;
-    background:linear-gradient(180deg, rgba(2,6,23,0.18), rgba(2,6,23,0.38));
-  }
-  .site-title{
-    font-size:1.8rem;
-    font-weight:700;
-    color:var(--accent);
-    text-shadow:0 0 12px rgba(0,255,106,0.12), 0 6px 30px rgba(0,0,0,0.8);
-    letter-spacing:0.6px;
-    margin:0;
-  }
-  .site-sub{
-    color:var(--muted);
-    margin:0;
-    font-size:0.95rem;
-  }
+        .section {
+            padding: 100px 0;
+        }
 
-  /* ---------- chrome widget (floating) ---------- */
-  #chrome-widget{position:absolute; right:16px; bottom:16px; z-index:40}
-  #chrome-widget .widget{
-    backdrop-filter: blur(6px);
-    padding:10px 14px;
-    border-radius:18px;
-    display:flex;
-    gap:10px;
-    align-items:center;
-    box-shadow:0 8px 30px rgba(0,0,0,0.5);
-    border:1px solid rgba(255,255,255,0.04);
-    background:linear-gradient(145deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  }
-  #chrome-widget .icon{
-    width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;
-    box-shadow:0 3px 8px rgba(0,0,0,0.35);
-    transition:transform .18s;
-  }
-  #chrome-widget .icon:hover{transform:scale(1.12)}
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
 
-  /* ---------- hero frame (placeholder for 360 or image) ---------- */
-  .hero{
-    display:flex;
-    gap:20px;
-    align-items:flex-start;
-    flex-wrap:wrap;
-    justify-content:center;
-  }
-  .frame{
-    width:920px;
-    max-width:100%;
-    aspect-ratio:16/9;
-    border-radius:18px;
-    overflow:hidden;
-    position:relative;
-    background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.3));
-    box-shadow:0 18px 60px rgba(3,10,20,0.7), inset 0 1px 0 rgba(255,255,255,0.02);
-    border: 1px solid rgba(0,255,106,0.06);
-  }
-  .frame-inner{
-    position:absolute; inset:12px; border-radius:12px; overflow:hidden; background:rgba(4,9,12,0.45);
-    display:flex; align-items:center; justify-content:center; flex-direction:column;
-    backdrop-filter: blur(4px);
-  }
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(0, 255, 106, 0.2);
+        }
 
-  /* video inside frame (we will use iframe-based video elsewhere) */
-  .frame img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-  }
+        .section-title p {
+            color: var(--muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
 
-  /* rotating wheel area */
-  #wheel-widget{ width:100%; height:650px; position:relative; display:flex; align-items:center; justify-content:center; }
-  #wheel-face{ width:650px; height:650px; transform-style:preserve-3d; animation:spin 70s linear infinite; }
-  @keyframes spin{ from{ transform:translateX(-50%) rotateY(0deg); } to{ transform:translateX(-50%) rotateY(360deg); } }
-  .wheel-item{
-    position:absolute; top:50%; left:50%; width:170px; height:56px; margin:-27px -85px;
-    background: linear-gradient(180deg, rgba(0,255,106,0.06), rgba(0,255,106,0.02));
-    border:1px solid rgba(0,255,106,0.18);
-    border-radius:10px; display:flex; align-items:center; justify-content:center;
-    font-weight:700; color:var(--accent); text-shadow:0 0 6px rgba(0,255,106,0.06);
-    backface-visibility:hidden; transition:transform .25s ease, background .2s;
-    cursor:pointer; padding:4px;
-  }
-  .wheel-item a{ color:var(--accent); text-decoration:none; font-size:0.88rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; width:100%; text-align:center;}
-  .wheel-item:hover{ transform:scale(1.08) translateZ(20px); background:rgba(0,255,106,0.12); z-index:150; }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
 
-  /* ---------- side column / videos ---------- */
-  .side {
-    width:360px; max-width:100%; display:flex; flex-direction:column; gap:16px;
-  }
-  .card {
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,0.03);
-    box-shadow:0 8px 24px rgba(2,8,20,0.6);
-  }
-  .video-embed { width:100%; aspect-ratio:16/9; border-radius:10px; overflow:hidden; background:#000 }
+        .btn {
+            display: inline-block;
+            padding: 14px 30px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            color: #002017;
+            border: none;
+            border-radius: var(--radius);
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
 
-  /* text widgets */
-  h2.section-title{ margin:0 0 8px 0; color:var(--accent); font-size:1.1rem; letter-spacing:0.4px }
-  p.muted{ color:var(--muted); margin:0; font-size:0.94rem }
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px rgba(0, 255, 106, 0.2);
+        }
 
-  /* ---------- typing widget ---------- */
-  #typing-heading{ width:100%; text-align:center; background:#010f08; padding:18px 0; margin-top:18px; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.45)}
-  #typing-text{ font-size:1.15rem; font-weight:700; color:var(--accent); margin:0; font-family:monospace; text-shadow:0 0 10px rgba(0,255,106,0.12)}
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
 
-  /* ---------- contact + calendly area ---------- */
-  .contact-area{ display:flex; gap:18px; flex-wrap:wrap; align-items:flex-start; justify-content:space-between; margin-top:10px }
-  .contact-card{ flex:1 1 520px; min-width:300px; background: linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.55)); padding:18px; border-radius:12px; border:1px solid rgba(255,255,255,0.03) }
-  .notice{ background:#b20b0b; color:#fff; font-weight:700; padding:12px; border-radius:8px; margin-bottom:12px }
-  form label{ color:var(--muted); font-size:0.95rem }
-  input[type=text], input[type=email], textarea{ width:100%; padding:12px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:#e7f8ef; margin-top:6px }
-  button[type=submit]{ padding:12px 20px; background:linear-gradient(90deg,var(--accent), #00c77f); color:#002017; border:none; font-weight:700; border-radius:10px; cursor:pointer }
+        .btn-outline:hover {
+            background: var(--primary);
+            color: #002017;
+        }
 
-  /* calendly */
-  .calendly-box{ flex:1 1 360px; min-width:300px; height:520px; border-radius:12px; overflow:hidden; border:1px solid rgba(255,255,255,0.03); background:#020814; }
+        /* ===== HEADER & NAVIGATION ===== */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(2, 4, 6, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: var(--transition);
+        }
 
-  /* ---------- google business/map section styling ---------- */
-  .google-business {
-    background: linear-gradient(135deg,#f0f4ff00 0%, #d9e7ff00 100%);
-    color:#cfeee2;
-    padding:18px;
-    border-radius:12px;
-    border:1px solid rgba(255,255,255,0.03);
-  }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
 
-  /* ---------- footer ---------- */
-  footer{ margin-top:28px; padding:20px; border-radius:12px; background:linear-gradient(180deg, rgba(0,0,0,0.6), rgba(3,8,12,0.9)); color:#cfeee2; display:flex; gap:20px; flex-wrap:wrap; align-items:flex-start; justify-content:space-between }
-  .footer-col{ width:30%; min-width:220px; }
-  .footer-col h4{ color:var(--accent); margin:0 0 8px 0 }
-  .footer-link{ display:block; color:#cfeee2; text-decoration:none; font-size:0.92rem; margin:4px 0 }
-  .small{ font-size:0.85rem; color:var(--muted) }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--light);
+        }
 
-  /* floating widgets */
-  .floating-actions{ position:fixed; right:20px; bottom:90px; display:flex; flex-direction:column; gap:12px; z-index:80 }
-  .float-btn{ background:linear-gradient(90deg,var(--accent), #00c77f); color:#00120b; padding:12px 14px; border-radius:10px; font-weight:700; box-shadow:0 8px 30px rgba(0,0,0,0.6); cursor:pointer; border:none }
+        .logo span {
+            color: var(--primary);
+        }
 
-  /* scroll to top */
-  #toTop{ position:fixed; right:18px; bottom:20px; z-index:90; width:44px; height:44px; border-radius:50%; background:linear-gradient(90deg,var(--accent), #00c77f); display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 8px 30px rgba(0,0,0,0.6) }
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
 
-  /* specific media/image sections to prevent overlay */
-  .gallery-image {
-    width:100%;
-    display:flex;
-    justify-content:center;
-    margin:18px 0;
-    position:relative;
-    z-index:2;
-  }
-  .gallery-image img{
-    max-width:100%;
-    width:920px;
-    height:auto;
-    border-radius:12px;
-    box-shadow:0 18px 60px rgba(0,0,0,0.6);
-    border:1px solid rgba(255,255,255,0.03);
-  }
+        .nav-links li {
+            margin-left: 30px;
+        }
 
-  /* responsive */
-  @media (max-width:1000px){
-    .hero{ flex-direction:column; align-items:center }
-    .side{ order:2; width:100% }
-    .frame{ width:100%; aspect-ratio:16/9 }
-    footer{ flex-direction:column; gap:12px }
-    #wheel-face{ transform: none; width:520px; height:520px; }
-  }
+        .nav-links a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            position: relative;
+        }
 
-  a:focus{ outline:3px solid rgba(0,255,106,0.12); outline-offset:3px }
-  </style>
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-top: 100px;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(2, 4, 6, 0.7), rgba(2, 4, 6, 0.9));
+            z-index: -1;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            object-fit: cover;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--light);
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero-content h1 span {
+            color: var(--primary);
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--muted);
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeIn 1.5s ease;
+        }
+
+        /* ===== WELCOME VIDEO SECTION ===== */
+        .welcome-video {
+            background: var(--secondary);
+            padding: 80px 0;
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .video-container video {
+            width: 100%;
+            display: block;
+        }
+
+        /* ===== CHROME WIDGET ===== */
+        .chrome-widget {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 20px;
+            margin: 40px auto;
+            max-width: 500px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .chrome-widget h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .widget-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .widget-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: var(--light);
+            transition: var(--transition);
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        .widget-link:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .widget-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+        }
+
+        .widget-text {
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        /* ===== ABOUT SECTION ===== */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-img {
+            flex: 1;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--muted);
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .skill {
+            background: rgba(0, 255, 106, 0.1);
+            color: var(--primary);
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba(0, 255, 106, 0.2);
+        }
+
+        /* ===== SERVICES SECTION ===== */
+        .services {
+            background: var(--secondary);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 30px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            border-color: rgba(0, 255, 106, 0.2);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--light);
+        }
+
+        .service-card p {
+            color: var(--muted);
+        }
+
+        /* ===== CONTACT SECTION ===== */
+        .contact-content {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(0, 255, 106, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
+
+        .contact-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: var(--light);
+        }
+
+        .contact-text p, .contact-text a {
+            color: var(--muted);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .contact-text a:hover {
+            color: var(--primary);
+        }
+
+        .contact-form {
+            flex: 1;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--light);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(0, 255, 106, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark);
+            padding: 60px 0 20px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-col h4 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: #002017;
+            transform: translateY(-5px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 992px) {
+            .about-content, .contact-content {
+                flex-direction: column;
+            }
+            
+            .about-img, .about-text, .contact-info, .contact-form {
+                width: 100%;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 15px 0;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background: rgba(2, 4, 6, 0.95);
+                flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
+                transition: var(--transition);
+                backdrop-filter: blur(10px);
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .hamburger {
+                display: block;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero-content h1 {
+                font-size: 1.8rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .section {
+                padding: 70px 0;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+    </style>
 </head>
-
 <body>
-  <!-- background layers -->
-  <div class="bg-gradient"></div>
-  <canvas id="particles" class="particles"></canvas>
-
-  <!-- TIDIO chat (kept as you had) -->
-  <script src="//code.tidio.co/pogxgzfctrvbwtfr4amxo7x1kp2bxkml.js" async></script>
-
-  <div class="wrap">
-    <!-- ===== HEADER (uses GitHub raw image link) ===== -->
-    <header aria-label="Hero header">
-      <div class="header-media" id="header-media"
-           style="background-image:url('https://raw.githubusercontent.com/AdnanSajjad786/portfolio-website/main/Adnan%20office%20Sitting%20close-up%20view.jpg')">
-      </div>
-
-      <div class="header-overlay">
-        <h1 class="site-title">Adnan Sajjad — Online Professional Services Hub</h1>
-        <p class="site-sub">Financial Analyst • ERP & IFRS • Digital Marketing • Travel & Tourism • Real Estate</p>
-
-        <!-- chrome widget -->
-        <div id="chrome-widget" aria-hidden="false" style="position:relative;">
-          <div class="widget">
-            <div style="font-weight:700;color:#222;margin-right:8px">Live</div>
-            <a href="https://adnansajjad786.github.io/portfolio-website/" target="_blank" class="icon" style="background:#24292e">GH</a>
-            <a href="https://portfolio-website-hjo.pages.dev" target="_blank" class="icon" style="background:#f38020">CF</a>
-            <a href="https://profound-piroshki-d24591.netlify.app/" target="_blank" class="icon" style="background:#00c7b7">NL</a>
-            <a href="https://portfolio-website-e2y1c21ir-adnan-sajjads-projects-e2ed3907.vercel.app/" target="_blank" class="icon" style="background:#000">VC</a>
-          </div>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">Adnan<span>Sajjad</span></a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
         </div>
-      </div>
     </header>
 
-    <!-- ===== HERO (frame with decorative image) + side videos (unchanged visual) ===== -->
-    <section class="hero" id="hero">
-      <div class="frame" role="region" aria-label="Interactive profile frame">
-        <div class="frame-inner tilt" id="frameInner">
-          <!-- Use header image inside frame as fallback/visual (no Drive video to avoid embed issues) -->
-          <img src="https://raw.githubusercontent.com/AdnanSajjad786/portfolio-website/main/Adnan%20office%20Sitting%20close-up%20view.jpg" alt="Adnan office sitting view">
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <img src="https://raw.githubusercontent.com/AdnanSajjad786/portfolio-website/main/Adnan%20office%20Sitting%20close-up%20view.jpg" alt="Adnan Sajjad" class="hero-bg">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Adnan Sajjad <span>Professional Services</span></h1>
+                <p>Financial Analyst • ERP & IFRS • Digital Marketing • Travel & Tourism • Real Estate</p>
+                <div class="hero-btns">
+                    <a href="#services" class="btn">My Services</a>
+                    <a href="#contact" class="btn btn-outline">Get In Touch</a>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <!-- side column with intro & education videos (kept as embeds) -->
-      <aside class="side">
-        <div class="card">
-          <h2 class="section-title">🎬 Introduction</h2>
-          <div class="video-embed">
-            <iframe src="https://www.youtube.com/embed/WfYGV7auC1w" title="Intro" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:100%;"></iframe>
-          </div>
-          <p class="muted">Click to play — overview of my background and services.</p>
-        </div>
-
-        <div class="card">
-          <h2 class="section-title">🎓 Education</h2>
-          <div class="video-embed">
-            <iframe src="https://www.youtube.com/embed/TfBXOAW_Bt0" title="Education" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="width:100%;height:100%;"></iframe>
-          </div>
-          <p class="muted">Qualifications, certifications, and training highlights.</p>
-        </div>
-      </aside>
     </section>
 
-    <!-- ===== Gallery Image (Adnan-white-dress) - separate section so it won't overlap ===== -->
-    <section class="gallery-image" aria-label="Fashion image">
-      <img src="https://raw.githubusercontent.com/AdnanSajjad786/portfolio-website/main/Adnan-white-dress.png" alt="Adnan in white dress">
-    </section>
-
-    <!-- ===== Looping YouTube Video Section (separate, does not overlay wheel) ===== -->
-    <section id="loop-video" style="width:100%; background:#000; padding:28px 0; border-radius:12px;">
-      <div style="max-width:920px; margin:0 auto; text-align:center;">
-        <h2 style="color:var(--accent); font-family:monospace; margin:0 0 14px 0;">▶ Looping Video</h2>
-        <!-- Use YouTube embed with autoplay=1&mute=1&loop=1&playlist=<VIDEO_ID> for looping -->
-        <div style="border-radius:12px; overflow:hidden; box-shadow:0 18px 60px rgba(0,0,0,0.6)">
-          <iframe width="100%" height="520"
-            src="https://www.youtube.com/embed/o58ovhVZ600?autoplay=1&mute=1&loop=1&playlist=o58ovhVZ600&rel=0"
-            frameborder="0"
-            allow="autoplay; encrypted-media; picture-in-picture"
-            allowfullscreen
-            title="Loop Video"></iframe>
+    <!-- Welcome Video Section -->
+    <section class="welcome-video">
+        <div class="container">
+            <div class="section-title">
+                <h2>Welcome to My Website</h2>
+                <p>Watch this short introduction to learn more about my professional services</p>
+            </div>
+            <div class="video-container">
+                <video controls poster="https://raw.githubusercontent.com/AdnanSajjad786/portfolio-website/main/Adnan%20office%20Sitting%20close-up%20view.jpg">
+                    <source src="https://github.com/AdnanSajjad786/portfolio-website/raw/main/Welcome%20to%20Adnan%20Sajjad%E2%80%99s%20Official%20Website.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
         </div>
-      </div>
     </section>
 
-    <!-- Typing heading widget above wheel (kept separate) -->
-    <div id="typing-heading">
-      <h2 id="typing-text"> </h2>
+    <!-- Chrome Widget -->
+    <div class="container">
+        <div class="chrome-widget">
+            <h3>My Portfolio Links</h3>
+            <div class="widget-links">
+                <a href="https://adnansajjad786.github.io/portfolio-website/" target="_blank" class="widget-link">
+                    <div class="widget-icon" style="background:#24292e">GH</div>
+                    <span class="widget-text">GitHub</span>
+                </a>
+                <a href="https://portfolio-website-hjo.pages.dev" target="_blank" class="widget-link">
+                    <div class="widget-icon" style="background:#f38020">CF</div>
+                    <span class="widget-text">Cloudflare</span>
+                </a>
+                <a href="https://profound-piroshki-d24591.netlify.app/" target="_blank" class="widget-link">
+                    <div class="widget-icon" style="background:#00c7b7">NL</div>
+                    <span class="widget-text">Netlify</span>
+                </a>
+                <a href="https://portfolio-website-e2y1c21ir-adnan-sajjads-projects-e2ed3907.vercel.app/" target="_blank" class="widget-link">
+                    <div class="widget-icon" style="background:#000">VC</div>
+                    <span class="widget-text">Vercel</span>
+                </a>
+            </div>
+        </div>
     </div>
 
-    <!-- ===== Rotating Wheel Widget (kept and fixed) ===== -->
-    <div id="wheel-widget" aria-label="Rotating pages wheel">
-      <div id="wheel-face" style="position:absolute; top:50%; left:50%; transform:translateX(-50%) translateY(-50%);"></div>
-    </div>
-
-    <!-- ===== Services carousel + small intro ===== -->
-    <section class="card" id="services" style="display:flex; flex-direction:column; gap:12px">
-      <h2 class="section-title">What I Offer</h2>
-      <div id="carousel" style="display:flex; gap:12px; overflow:hidden; align-items:center;">
-        <!-- JS will populate service cards -->
-      </div>
-    </section>
-
-    <!-- ===== Contact & Calendly area ===== -->
-    <section class="contact-area">
-      <div class="contact-card contact-card-left">
-        <h2 class="section-title">📨 Contact Mr. Adnan Sajjad — Professional Services Inquiry</h2>
-
-        <div class="notice" role="alert">
-          Important Notice: Do Not Fill Contact Form!<br>
-          My services are offered strictly on a cash basis for foreign clients. Please note that my services are not available to religious figures (Moulanas, Qaris, Peers, Sayeds), NGOs, psychiatric institutions, or Pakistani clients. This applies regardless of whether they are from Pakistan or abroad. I apologize for any inconvenience.
+    <!-- About Section -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+                <p>Learn more about my professional background and expertise</p>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://raw.githubusercontent.com/AdnanSajjad786/portfolio-website/main/Adnan%20office%20Sitting%20close-up%20view.jpg" alt="Adnan Sajjad">
+                </div>
+                <div class="about-text">
+                    <h3>Professional Financial Analyst & Digital Marketer</h3>
+                    <p>I'm a dedicated professional with expertise in financial analysis, ERP systems, IFRS standards, digital marketing, travel & tourism, and real estate services.</p>
+                    <p>With years of experience in the industry, I've helped numerous clients achieve their financial and business goals through strategic planning and innovative solutions.</p>
+                    <div class="skills">
+                        <span class="skill">Financial Analysis</span>
+                        <span class="skill">ERP Systems</span>
+                        <span class="skill">IFRS Standards</span>
+                        <span class="skill">Digital Marketing</span>
+                        <span class="skill">Travel & Tourism</span>
+                        <span class="skill">Real Estate</span>
+                        <span class="skill">Business Consulting</span>
+                    </div>
+                    <a href="#contact" class="btn" style="margin-top: 20px;">Contact Me</a>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <form action="https://formspree.io/f/xqadodqv" method="POST" id="contactForm">
-          <label for="name">Your Name:</label><br>
-          <input type="text" id="name" name="name" required><br><br>
-
-          <label for="email">Your Email Address:</label><br>
-          <input type="email" id="email" name="email" required><br><br>
-
-          <label for="enquiry">Your Enquiry:</label><br>
-          <textarea id="enquiry" name="enquiry" required></textarea><br><br>
-
-          <label for="message">Additional Message or Notes:</label><br>
-          <textarea id="message" name="message"></textarea><br><br>
-
-          <button type="submit">Send Message to Mr. Adnan Sajjad</button>
-          <p class="small">Your message will be sent to: adnansajjadnew786@gmail.com</p>
-        </form>
-
-        <div style="margin-top:12px;">
-          <a class="small footer-link" href="https://sites.google.com/view/adnan-sajjad/contact-adnan-sajjad" target="_blank">Contact Page on Google Sites (contains Google Meet / Teams / Skype details)</a>
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>My Services</h2>
+                <p>Comprehensive professional services tailored to your needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Financial Analysis</h3>
+                    <p>Comprehensive financial analysis, reporting, and strategic planning for businesses of all sizes.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>ERP & IFRS</h3>
+                    <p>Implementation and optimization of ERP systems with IFRS compliance and accounting standards.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Digital Marketing</h3>
+                    <p>Strategic digital marketing solutions to enhance your online presence and drive business growth.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <h3>Travel & Tourism</h3>
+                    <p>Custom travel packages and tourism services for both business and leisure travelers.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Real Estate</h3>
+                    <p>Professional real estate consulting, property management, and investment advisory services.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Business Consulting</h3>
+                    <p>Strategic business consulting to help you optimize operations and achieve your goals.</p>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <div class="calendly-box">
-        <iframe src="https://calendly.com/adnansajjadnew786/adnan-sajjad" style="width:100%;height:100%;border:0;" title="Calendly scheduling"></iframe>
-      </div>
     </section>
 
-    <!-- Typing heading repeated small spacer (keeps original feel) -->
-    <div id="typing-heading" style="margin-top:8px;">
-      <h2 id="typing-text-2" style="display:none"> </h2>
-    </div>
-
-    <!-- ===== Google Business Section (map + review) ===== -->
-    <section class="google-business" aria-label="Google business">
-      <h3 style="color:var(--accent); margin:0 0 6px 0">📍 Google Business</h3>
-      <p class="small" style="color:var(--muted); margin:0 0 12px 0;">House No R-852, Road No 2, Sector 15 A/2, Buffer Zone, Karachi</p>
-      <div style="max-width:900px; margin:0 auto;">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.386265619886!2d67.03489631499496!3d24.93779828402439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb3390e91b61cb1%3A0x4df0e9f24ed109b0!2sSector%2015-A%202%20Buffer%20Zone%20North%20Karachi%20Town%2C%20Karachi%2C%20Karachi%20City%2C%20Sindh!5e0!3m2!1sen!2s!4v1696778455084!5m2!1sen!2s"
-          width="100%" height="300" style="border:0; border-radius:8px;" allowfullscreen="" loading="lazy">
-        </iframe>
-      </div>
-      <div style="margin-top:12px; text-align:center;">
-        <a href="https://g.page/r/CZ4tReAOrnVuEAE/review" target="_blank" class="float-btn" style="padding:10px 18px; border-radius:10px; background:linear-gradient(90deg,var(--accent),#00c77f); color:#00120b; text-decoration:none; font-weight:700;">⭐ Leave a Google Review</a>
-      </div>
+    <!-- Contact Section -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Contact me for professional services and consultations</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Location</h4>
+                            <p>Karachi, Pakistan</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <a href="mailto:adnansajjadnew786@gmail.com">adnansajjadnew786@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>GitHub</h4>
+                            <a href="https://github.com/AdnanSajjad786" target="_blank">github.com/AdnanSajjad786</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Portfolio</h4>
+                            <a href="https://adnansajjad786.github.io/portfolio-website/" target="_blank">View My Portfolio</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form action="https://formspree.io/f/xqadodqv" method="POST" id="contactForm">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-control" name="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- ===== Footer sitemap (three columns) ===== -->
+    <!-- Footer -->
     <footer>
-      <div class="footer-col">
-        <h4>Home & Portfolio</h4>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/home" target="_blank">Home</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-portfolio" target="_blank">Adnan Sajjad Portfolio</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-portfolio/photo-gallery" target="_blank">Photo Gallery</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-portfolio/clients" target="_blank">Clients</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-portfolio/testimonial" target="_blank">Testimonial</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/contact-adnan-sajjad" target="_blank">Contact Adnan Sajjad</a>
-      </div>
-
-      <div class="footer-col">
-        <h4>About</h4>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad" target="_blank">About Adnan Sajjad</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-cv-2025" target="_blank">Adnan Sajjad CV - 2025</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-identity-card" target="_blank">Identity Card</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-education" target="_blank">Education</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-work-experience" target="_blank">Work Experience</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-travel-history" target="_blank">Travel History</a>
-      </div>
-
-      <div class="footer-col">
-        <h4>Professional Services</h4>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services/hr-cv-services" target="_blank">HR & CV Services</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services/financial-analyst-services" target="_blank">Financial Analyst Services</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services/travel-tourism-services" target="_blank">Travel & Tourism Services</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services/real-estates-services" target="_blank">Real Estate Services</a>
-        <a class="footer-link" href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services/digital-marketing-services" target="_blank">Digital Marketing Services</a>
-      </div>
-
-      <div style="width:100%; margin-top:14px; display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap;">
-        <div class="small">© Oct 2025 Adnan Sajjad. All Rights Reserved. Powered by GitHub • Cloudflare • Netlify • Vercel</div>
-        <div style="display:flex;gap:10px;align-items:center;">
-          <div id="visitor-count" class="small">Visitors: 0</div>
-          <div class="small">Analytics: <span id="gaStatus">inactive (replace G-XXXXXXXXXX)</span></div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>Adnan Sajjad</h4>
+                    <p>Professional Financial Analyst, Digital Marketer, and Business Consultant with expertise in multiple domains.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Financial Analysis</a></li>
+                        <li><a href="#">ERP & IFRS</a></li>
+                        <li><a href="#">Digital Marketing</a></li>
+                        <li><a href="#">Travel & Tourism</a></li>
+                        <li><a href="#">Real Estate</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Adnan Sajjad. All Rights Reserved.</p>
+            </div>
         </div>
-      </div>
     </footer>
 
-  </div> <!-- end wrap -->
-
-  <!-- floating action buttons -->
-  <div class="floating-actions" aria-hidden="false">
-    <button class="float-btn" id="openCalendly">📅 Schedule (Calendly)</button>
-    <button class="float-btn" id="openContact">✉️ Contact Page</button>
-    <a class="float-btn" href="https://linktr.ee/adnansajjad786" target="_blank">🔗 Linktree</a>
-  </div>
-
-  <!-- scroll to top -->
-  <div id="toTop" title="Scroll to top" aria-label="Scroll to top" role="button">
-    ↑
-  </div>
-
-<script>
-/* ---------- Utility & Config (updated) ---------- */
-const CONFIG = {
-  HEADER_IMG: 'https://raw.githubusercontent.com/AdnanSajjad786/portfolio-website/main/Adnan%20office%20Sitting%20close-up%20view.jpg',
-  DRESS_IMG: 'https://raw.githubusercontent.com/AdnanSajjad786/portfolio-website/main/Adnan-white-dress.png',
-  YT_LOOP: 'https://www.youtube.com/embed/o58ovhVZ600?autoplay=1&mute=1&loop=1&playlist=o58ovhVZ600&rel=0',
-  YT_INTRO: 'https://www.youtube.com/embed/WfYGV7auC1w',
-  YT_EDU: 'https://www.youtube.com/embed/TfBXOAW_Bt0',
-  FORM_ACTION: 'https://formspree.io/f/xqadodqv',
-  CALENDLY_URL: 'https://calendly.com/adnansajjadnew786/adnan-sajjad',
-  SITE_CONTACT_PAGE: 'https://sites.google.com/view/adnan-sajjad/contact-adnan-sajjad'
-}
-
-/* ---------- Particles (lightweight) ---------- */
-(function initParticles(){
-  const canvas=document.getElementById('particles');
-  if(!canvas) return;
-  const ctx=canvas.getContext('2d');
-  let w=canvas.width=innerWidth, h=canvas.height=innerHeight;
-  window.addEventListener('resize',()=>{ w=canvas.width=innerWidth; h=canvas.height=innerHeight; });
-  const particles=[]; const count=80;
-  for(let i=0;i<count;i++){
-    particles.push({
-      x:Math.random()*w, y:Math.random()*h,
-      r: Math.random()*1.6+0.6,
-      vx:(Math.random()-0.5)*0.2, vy:(Math.random()-0.5)*0.2,
-      alpha: 0.2 + Math.random()*0.6
-    });
-  }
-  function draw(){
-    ctx.clearRect(0,0,w,h);
-    for(const p of particles){
-      p.x += p.vx; p.y += p.vy;
-      if(p.x<0)p.x=w; if(p.x>w)p.x=0; if(p.y<0)p.y=h; if(p.y>h)p.y=0;
-      ctx.beginPath();
-      ctx.fillStyle = 'rgba(255,255,255,'+ (p.alpha*0.04) +')';
-      ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
-      ctx.fill();
-    }
-    requestAnimationFrame(draw);
-  }
-  draw();
-})();
-
-/* ---------- Wheel items (create wheel) ---------- */
-(function createWheel(){
-  const pages = [
-    {url:"https://sites.google.com/view/adnan-sajjad/home", label:"Home"},
-    {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad", label:"About"},
-    {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-cv-2025", label:"CV"},
-    {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-identity-card", label:"ID Card"},
-    {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-education", label:"Education"},
-    {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-work-experience", label:"Work"},
-    {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-travel-history", label:"Travel"},
-    {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-company-concepts-travel-pvt-ltd", label:"Company"},
-    {url:"https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services", label:"Services"},
-    {url:"https://sites.google.com/view/adnan-sajjad/adnan-sajjad-portfolio", label:"Portfolio"},
-    {url:"https://sites.google.com/view/adnan-sajjad/contact-adnan-sajjad", label:"Contact"}
-  ];
-  const wheel = document.getElementById('wheel-face');
-  if(!wheel) return;
-  const count = pages.length;
-  const step = 360 / count;
-  pages.forEach((p,i)=>{
-    const card = document.createElement('div');
-    card.className='wheel-item';
-    const ang = i * step;
-    // position using rotateY + translateZ
-    card.style.transform = `rotateY(${ang}deg) translateZ(325px)`;
-    card.innerHTML = `<a href="${p.url}" target="_blank" rel="noopener">${p.label}</a>`;
-    wheel.appendChild(card);
-  });
-})();
-
-/* ---------- tilt on mouse move for frameInner (visual only) ---------- */
-(function tiltLogic(){
-  const f = document.getElementById('frameInner');
-  if(!f) return;
-  f.addEventListener('mousemove', e=>{
-    const r = f.getBoundingClientRect();
-    const cx = r.left + r.width/2;
-    const cy = r.top + r.height/2;
-    const dx = e.clientX - cx;
-    const dy = e.clientY - cy;
-    const rx = (dy / r.height) * -7;
-    const ry = (dx / r.width) * 7;
-    f.style.transform = `rotateX(${rx}deg) rotateY(${ry}deg)`;
-  });
-  f.addEventListener('mouseleave', ()=> f.style.transform='rotateX(0deg) rotateY(0deg)');
-})();
-
-/* ---------- Services carousel ---------- */
-(function servicesCarousel(){
-  const services = [
-    'Financial Analyst Services',
-    'ERP & IFRS Accounting',
-    'Travel & Tourism Packages',
-    'Real Estate Consulting',
-    'Digital Marketing Solutions',
-    'Student Scholarship Services'
-  ];
-  const c = document.getElementById('carousel');
-  if(!c) return;
-  services.forEach((s,i)=>{
-    const card = document.createElement('div');
-    card.style.minWidth='220px';
-    card.style.padding='12px';
-    card.style.borderRadius='12px';
-    card.style.background='linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.12))';
-    card.style.border='1px solid rgba(255,255,255,0.03)';
-    card.style.boxShadow='0 8px 20px rgba(0,0,0,0.45)';
-    card.innerHTML = `<strong style="color:var(--accent)">${s}</strong><p style="margin:8px 0 0 0;color:var(--muted);font-size:0.92rem">Professional ${s.toLowerCase()}</p>`;
-    c.appendChild(card);
-  });
-
-  // simple auto-scroll
-  let pos=0;
-  setInterval(()=>{
-    if(!c) return;
-    pos += 240;
-    if(pos > c.scrollWidth - c.clientWidth) pos = 0;
-    c.scrollTo({left:pos, behavior:'smooth'});
-  },3000);
-})();
-
-/* ---------- typing heading widget ---------- */
-(function typingWidget(){
-  const text = "🌐 Explore Adnan Sajjad Website — Click Rotating Page Card";
-  let i=0;
-  const el = document.getElementById('typing-text');
-  if(!el) return;
-  function typeEffect(){
-    if(i < text.length){
-      el.innerText = text.substring(0,i+1);
-      i++;
-      setTimeout(typeEffect,80);
-    } else {
-      i=0; setTimeout(typeEffect,2200);
-    }
-  }
-  typeEffect();
-})();
-
-/* ---------- floating actions ---------- */
-document.getElementById('openCalendly').addEventListener('click',()=> window.open(CONFIG.CALENDLY_URL,'_blank'));
-document.getElementById('openContact').addEventListener('click',()=> window.open(CONFIG.SITE_CONTACT_PAGE,'_blank'));
-
-/* ---------- scroll to top ---------- */
-(function toTop(){
-  const btn = document.getElementById('toTop');
-  if(!btn) return;
-  btn.addEventListener('click', ()=> window.scrollTo({top:0, behavior:'smooth'}));
-  window.addEventListener('scroll', ()=> btn.style.display = window.scrollY > 200 ? 'flex' : 'none');
-})();
-
-/* ---------- Visitor counter (client-side simple placeholder) ---------- */
-(function visitorCounter(){
-  const key='adnan_visitors_v1';
-  let cnt = localStorage.getItem(key);
-  if(!cnt){ cnt = Math.floor(Math.random()*4200) + 300; localStorage.setItem(key,cnt); }
-  document.getElementById('visitor-count').innerText = 'Visitors: ' + cnt;
-})();
-
-/* ---------- Simple GA placeholder (replace with actual ID) ---------- */
-(function addGA(){
-  const GA_ID = 'G-XXXXXXXXXX'; // <-- replace with your real Google Analytics measurement id
-  if(GA_ID && GA_ID !== 'G-XXXXXXXXXX'){
-    const s=document.createElement('script');
-    s.async=true; s.src=`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
-    document.head.appendChild(s);
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments)}
-    gtag('js', new Date());
-    gtag('config', GA_ID);
-    document.getElementById('gaStatus').innerText = GA_ID;
-  }
-})();
-
-/* ---------- ensure form sends via Formspree & visual success ---------- */
-document.getElementById('contactForm').addEventListener('submit', function(e){
-  // show a quick message and allow default behaviour to Formspree
-  alert('Thank you — your message will be sent. Please check confirmation email from Formspree.');
-});
-
-/* ---------- Accessibility: allow keyboard to focus wheel items ---------- */
-(function keyboardFocus(){
-  // this will work once wheel items exist
-  document.addEventListener('DOMContentLoaded', ()=>{
-    const items = document.querySelectorAll('.wheel-item a');
-    items.forEach(a=>{
-      a.addEventListener('keydown', e=>{
-        if(e.key === 'Enter') a.click();
-      });
-    });
-  });
-})();
-</script>
-
+    <script>
+        // Mobile Navigation Toggle
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if(window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(2, 4, 6, 0.95)';
+                header.style.boxShadow = '0 5px 15px rgba(0, 0, 0, 0.3)';
+            } else {
+                header.style.backgroundColor = 'rgba(2, 4, 6, 0.9)';
+                header.style.boxShadow = 'none';
+            }
+        });
+        
+        // Visitor counter (client-side simple placeholder)
+        (function visitorCounter(){
+            const key='adnan_visitors_v1';
+            let cnt = localStorage.getItem(key);
+            if(!cnt){ cnt = Math.floor(Math.random()*4200) + 300; localStorage.setItem(key,cnt); }
+            // You can display this count somewhere if needed
+        })();
+    </script>
 </body>
 </html>
