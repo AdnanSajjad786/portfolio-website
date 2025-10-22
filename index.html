@@ -273,13 +273,34 @@
             display: block;
         }
 
+        /* ===== SERVICES HUB SECTION ===== */
+        .services-hub {
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .services-hub h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .services-hub p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            color: var(--muted);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
         /* ===== CHROME WIDGET ===== */
         .chrome-widget {
             background: var(--card-bg);
             border-radius: var(--radius);
             padding: 20px;
             margin: 40px auto;
-            max-width: 500px;
+            max-width: 600px;
             box-shadow: var(--shadow);
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
@@ -385,6 +406,18 @@
             font-size: 0.9rem;
             font-weight: 600;
             border: 1px solid rgba(0, 255, 106, 0.2);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .skill:hover {
+            background: rgba(0, 255, 106, 0.2);
+            transform: translateY(-3px);
+        }
+
+        .skill a {
+            color: var(--primary);
+            text-decoration: none;
         }
 
         /* ===== SERVICES SECTION ===== */
@@ -581,6 +614,168 @@
             font-size: 0.9rem;
         }
 
+        /* ===== ROTATING WHEEL ===== */
+        #wheel-widget {
+            width: 100%;
+            height: 650px;
+            background: #010f08;
+            font-family: monospace;
+            perspective: 2000px;
+            box-shadow: inset 0 0 30px rgba(0,255,100,0.2);
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            position: relative;
+            border-radius: var(--radius);
+        }
+
+        #wheel-face {
+            width: 650px;
+            height: 650px;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            transform-style: preserve-3d;
+            animation: spin 70s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: translateX(-50%) rotateY(0deg); }
+            to   { transform: translateX(-50%) rotateY(360deg); }
+        }
+
+        .wheel-item {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 160px;
+            height: 55px;
+            margin: -27px -80px;
+            background: rgba(0,255,106,0.08);
+            border: 2px solid rgba(0,255,106,0.6);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-align: center;
+            overflow: hidden;
+            text-shadow: 0 0 4px #00ff6a;
+            backface-visibility: hidden;
+            padding: 4px;
+        }
+
+        .wheel-item a {
+            color: #00ff6a;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .wheel-item:hover {
+            background: rgba(0,255,106,0.25);
+            transform: scale(1.1);
+            z-index: 100;
+        }
+
+        /* ===== GOOGLE ANALYTICS STYLES ===== */
+        .analytics-widget {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            background: #f7f9fc;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            margin: 40px auto;
+            color: #333;
+        }
+
+        .analytics-widget h2 {
+            color: #004aad;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .analytics-widget h3 {
+            color: #004aad;
+            margin: 15px 0 10px;
+        }
+
+        .analytics-widget ul {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .analytics-widget li {
+            margin-bottom: 5px;
+        }
+
+        .analytics-widget a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .analytics-widget a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== CALENDLY STYLES ===== */
+        .calendly-widget {
+            min-width: 320px;
+            height: 700px;
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 6px 18px rgba(2,6,23,.04);
+            margin: 40px auto;
+        }
+
+        /* ===== VISITOR COUNTER ===== */
+        #liveVisitors {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #004aad;
+            color: #fff;
+            padding: 10px 16px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            z-index: 9999;
+        }
+
+        /* ===== FORMSPREE STYLES ===== */
+        .formspree-form label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--light);
+            font-weight: 600;
+        }
+
+        .formspree-form small {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--muted);
+            margin-top: 5px;
+        }
+
+        .important-notice {
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #ff6b6b;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
         /* ===== ANIMATIONS ===== */
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -621,6 +816,17 @@
             
             .hero-content h1 {
                 font-size: 2.8rem;
+            }
+
+            #wheel-face {
+                width: 500px;
+                height: 500px;
+            }
+
+            .wheel-item {
+                width: 140px;
+                height: 50px;
+                margin: -25px -70px;
             }
         }
 
@@ -673,6 +879,18 @@
                 width: 100%;
                 max-width: 300px;
             }
+
+            #wheel-face {
+                width: 400px;
+                height: 400px;
+            }
+
+            .wheel-item {
+                width: 120px;
+                height: 45px;
+                margin: -22px -60px;
+                font-size: 0.7rem;
+            }
         }
 
         @media (max-width: 576px) {
@@ -692,6 +910,18 @@
                 flex-direction: column;
                 gap: 30px;
             }
+
+            #wheel-face {
+                width: 300px;
+                height: 300px;
+            }
+
+            .wheel-item {
+                width: 100px;
+                height: 40px;
+                margin: -20px -50px;
+                font-size: 0.6rem;
+            }
         }
     </style>
 </head>
@@ -700,13 +930,13 @@
     <header>
         <div class="container">
             <nav class="navbar">
-                <a href="#" class="logo">Adnan<span>Sajjad</span></a>
                 <ul class="nav-links">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="https://sites.google.com/view/adnan-sajjad/home" target="_blank">Home</a></li>
+                    <li><a href="https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad" target="_blank">About</a></li>
+                    <li><a href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services" target="_blank">Services</a></li>
+                    <li><a href="https://sites.google.com/view/adnan-sajjad/contact-adnan-sajjad" target="_blank">Contact</a></li>
                 </ul>
+                <div class="logo">👋 Welcome to Adnan Sajjad Professional Services Hub 💼 Financial Analyst | ✈️ Travel & Tourism | 📱 Digital Marketing | 🏡 Real Estate © Since 2008</div>
                 <div class="hamburger">
                     <i class="fas fa-bars"></i>
                 </div>
@@ -714,17 +944,19 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with YouTube Video -->
     <section class="hero" id="home">
-        <img src="https://raw.githubusercontent.com/AdnanSajjad786/portfolio-website/main/Adnan%20office%20Sitting%20close-up%20view.jpg" alt="Adnan Sajjad" class="hero-bg">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/WfYGV7auC1w?autoplay=1&mute=1&controls=0&loop=1&playlist=WfYGV7auC1w" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="hero-bg"></iframe>
+    </section>
+
+    <!-- Services Hub Section -->
+    <section class="services-hub">
         <div class="container">
-            <div class="hero-content">
-                <h1>Adnan Sajjad <span>Professional Services</span></h1>
-                <p>Financial Analyst • ERP & IFRS • Digital Marketing • Travel & Tourism • Real Estate</p>
-                <div class="hero-btns">
-                    <a href="#services" class="btn">My Services</a>
-                    <a href="#contact" class="btn btn-outline">Get In Touch</a>
-                </div>
+            <h2>Adnan Sajjad Professional Multi Services Hub</h2>
+            <p>Financial Analyst • ERP & IFRS, • Travel & Tourism • Real Estate • Digital Marketing & More</p>
+            <div class="hero-btns">
+                <a href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services" target="_blank" class="btn">My Services</a>
+                <a href="https://sites.google.com/view/adnan-sajjad/contact-adnan-sajjad" target="_blank" class="btn btn-outline">Get In Touch</a>
             </div>
         </div>
     </section>
@@ -734,7 +966,7 @@
         <div class="container">
             <div class="section-title">
                 <h2>Welcome to My Website</h2>
-                <p>Watch this short introduction to learn more about my professional services</p>
+                <p>Watch this short introduction to learn more about my Website pages</p>
             </div>
             <div class="video-container">
                 <video controls poster="https://raw.githubusercontent.com/AdnanSajjad786/portfolio-website/main/Adnan%20office%20Sitting%20close-up%20view.jpg">
@@ -745,29 +977,82 @@
         </div>
     </section>
 
-    <!-- Chrome Widget -->
+    <!-- Portfolio Links Widget -->
     <div class="container">
         <div class="chrome-widget">
             <h3>My Portfolio Links</h3>
             <div class="widget-links">
+                <a href="https://sites.google.com/view/adnan-sajjad" target="_blank" class="widget-link">
+                    <div class="widget-icon" style="background:#4285f4"><i class="fab fa-google"></i></div>
+                    <span class="widget-text">Google Sites</span>
+                </a>
                 <a href="https://adnansajjad786.github.io/portfolio-website/" target="_blank" class="widget-link">
-                    <div class="widget-icon" style="background:#24292e">GH</div>
+                    <div class="widget-icon" style="background:#24292e"><i class="fab fa-github"></i></div>
                     <span class="widget-text">GitHub</span>
                 </a>
                 <a href="https://portfolio-website-hjo.pages.dev" target="_blank" class="widget-link">
-                    <div class="widget-icon" style="background:#f38020">CF</div>
+                    <div class="widget-icon" style="background:#f38020"><i class="fas fa-cloud"></i></div>
                     <span class="widget-text">Cloudflare</span>
                 </a>
-                <a href="https://profound-piroshki-d24591.netlify.app/" target="_blank" class="widget-link">
-                    <div class="widget-icon" style="background:#00c7b7">NL</div>
-                    <span class="widget-text">Netlify</span>
-                </a>
-                <a href="https://portfolio-website-e2y1c21ir-adnan-sajjads-projects-e2ed3907.vercel.app/" target="_blank" class="widget-link">
-                    <div class="widget-icon" style="background:#000">VC</div>
+                <a href="https://portfolio-website-mcxzzy4i7-adnan-sajjads-projects-e2ed3907.vercel.app/" target="_blank" class="widget-link">
+                    <div class="widget-icon" style="background:#000"><i class="fas fa-arrow-right"></i></div>
                     <span class="widget-text">Vercel</span>
+                </a>
+                <a href="https://profound-piroshki-d24591.netlify.app/" target="_blank" class="widget-link">
+                    <div class="widget-icon" style="background:#00c7b7"><i class="fas fa-rocket"></i></div>
+                    <span class="widget-text">Netlify</span>
                 </a>
             </div>
         </div>
+    </div>
+
+    <!-- Google Analytics Widget -->
+    <div class="analytics-widget">
+        <h2>📊 Google Analytics & Business Overview</h2>
+
+        <h3>🌐 Website</h3>
+        <p><strong>URL:</strong> <a href="https://sites.google.com/view/adnan-sajjad" target="_blank">https://sites.google.com/view/adnan-sajjad</a></p>
+        <p><strong>Platform:</strong> Google Sites</p>
+        <p><strong>Status:</strong> Published, Data Active ✅</p>
+
+        <h3>📈 Google Analytics 4 (GA4)</h3>
+        <ul>
+            <li><strong>Account ID:</strong> 317758170</li>
+            <li><strong>Property Name:</strong> Adnan-sajjad</li>
+            <li><strong>Property ID:</strong> 445534188</li>
+            <li><strong>Measurement ID:</strong> <span style="color:green;">G-RE9T691H1L</span></li>
+            <li><strong>View Property:</strong> <a href="https://analytics.google.com/analytics/web/#/a317758170p445534188/reports/intelligenthome" target="_blank">Open GA4</a></li>
+        </ul>
+
+        <h3>🧩 Tag Assistant</h3>
+        <ul>
+            <li><strong>Tag Name:</strong> Adnan-sajjad</li>
+            <li><strong>Active Tag ID:</strong> G-RE9T691H1L ✅</li>
+            <li><strong>Legacy Tag ID:</strong> GT-PJ5SJ625</li>
+            <li><strong>Tag Assistant:</strong> <a href="https://tagassistant.google.com/" target="_blank">Open Tag Assistant</a></li>
+            <li><strong>Debug Mode:</strong> <a href="https://tagassistant.google.com/#/?url=https%3A%2F%2Fsites.google.com%2Fview%2Fadnan-sajjad%3Fgtm_debug%3D1760961640036" target="_blank">Start Debug</a></li>
+        </ul>
+
+        <h3>🏢 Google Business Profile</h3>
+        <p><strong>Business:</strong> Adnan Sajjad Online Professional Services Hub</p>
+        <ul>
+            <li><strong>GBP ID:</strong> 2207860734035826081</li>
+            <li><strong>Shop Code:</strong> 09800439869067634175</li>
+            <li><strong>Linked Ads Account:</strong> 7690051331</li>
+            <li><strong>Email:</strong> <a href="mailto:adnansajjad786new2025@gmail.com">adnansajjad786new2025@gmail.com</a></li>
+            <li><strong>View on Google:</strong> <a href="https://www.google.com/search?q=Adnan+Sajjad+Online+Professional+Services+Hub" target="_blank">Open Business Listing</a></li>
+        </ul>
+
+        <h3>📝 Notes</h3>
+        <ul>
+            <li>GA4 updates visitor data every 24 hours; use DebugView for real-time tests.</li>
+            <li>Only one active tag (G-RE9T691H1L) should be present to avoid duplication.</li>
+            <li>Link this site with Google Ads for remarketing and conversion tracking.</li>
+        </ul>
+
+        <p style="text-align:center; font-weight:bold; color:#004aad;">
+            💡 Shortcut: "Website → GA4 (G-RE9T691H1L) → Account 317758170 → Property 445534188 → Active & Verified ✅"
+        </p>
     </div>
 
     <!-- About Section -->
@@ -780,19 +1065,35 @@
             <div class="about-content">
                 <div class="about-img">
                     <img src="https://raw.githubusercontent.com/AdnanSajjad786/portfolio-website/main/Adnan%20office%20Sitting%20close-up%20view.jpg" alt="Adnan Sajjad">
+                    <div style="margin-top: 20px;">
+                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/TfBXOAW_Bt0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/VMp_CRKaL30" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <iframe width="100%" height="200" src="https://www.youtube.com/embed/_7uSqCKmtq8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
                 </div>
                 <div class="about-text">
-                    <h3>Professional Financial Analyst & Digital Marketer</h3>
-                    <p>I'm a dedicated professional with expertise in financial analysis, ERP systems, IFRS standards, digital marketing, travel & tourism, and real estate services.</p>
+                    <h3>Adnan Sajjad</h3>
+                    <h4>Professional Financial Analyst & Travel Tourism</h4>
+                    <p>I'm a dedicated professional with expertise in financial analysis, ERP systems, IFRS standards, travel & tourism, real estate, and digital marketing services and more.</p>
                     <p>With years of experience in the industry, I've helped numerous clients achieve their financial and business goals through strategic planning and innovative solutions.</p>
+                    
                     <div class="skills">
-                        <span class="skill">Financial Analysis</span>
-                        <span class="skill">ERP Systems</span>
-                        <span class="skill">IFRS Standards</span>
-                        <span class="skill">Digital Marketing</span>
-                        <span class="skill">Travel & Tourism</span>
-                        <span class="skill">Real Estate</span>
-                        <span class="skill">Business Consulting</span>
+                        <div class="skill"><a href="https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-cv-2025" target="_blank">Adnan Sajjad CV 2025</a></div>
+                        <div class="skill"><a href="https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-identity-card" target="_blank">Identity</a></div>
+                        <div class="skill"><a href="https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-education" target="_blank">Education</a></div>
+                        <div class="skill"><a href="https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-travel-history" target="_blank">Travel History</a></div>
+                        <div class="skill"><a href="https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-work-experience/financial-analyst-work-experience" target="_blank">Financial Analysis</a></div>
+                        <div class="skill">ERP Systems</div>
+                        <div class="skill">IFRS Standards</div>
+                        <div class="skill"><a href="https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-work-experience/travel-tourism-work-experience" target="_blank">Travel & Tourism</a></div>
+                        <div class="skill"><a href="https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-work-experience/real-estates-work-experience" target="_blank">Real Estate</a></div>
+                        <div class="skill"><a href="https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-work-experience/digital-marketing-work-experience" target="_blank">Digital Marketing</a></div>
+                        <div class="skill"><a href="https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-work-experience/warehouse-and-security-work-experience" target="_blank">Warehouse & Security</a></div>
+                        <div class="skill"><a href="https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-company-concepts-travel-pvt-ltd" target="_blank">My Company Concepts Travels Pvt Ltd</a></div>
                     </div>
                     <a href="#contact" class="btn" style="margin-top: 20px;">Contact Me</a>
                 </div>
@@ -812,43 +1113,92 @@
                     <div class="service-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h3>Financial Analysis</h3>
+                    <h3><a href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services/financial-analyst-services" target="_blank" style="color: var(--light); text-decoration: none;">Financial Analysis</a></h3>
                     <p>Comprehensive financial analysis, reporting, and strategic planning for businesses of all sizes.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-cogs"></i>
                     </div>
-                    <h3>ERP & IFRS</h3>
-                    <p>Implementation and optimization of ERP systems with IFRS compliance and accounting standards.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3>Digital Marketing</h3>
-                    <p>Strategic digital marketing solutions to enhance your online presence and drive business growth.</p>
+                    <h3><a href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services/hr-cv-services" target="_blank" style="color: var(--light); text-decoration: none;">HR & CV Services</a></h3>
+                    <p>Professional HR consulting and CV development services for career advancement.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-plane"></i>
                     </div>
-                    <h3>Travel & Tourism</h3>
+                    <h3><a href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services/travel-tourism-services" target="_blank" style="color: var(--light); text-decoration: none;">Travel & Tourism</a></h3>
                     <p>Custom travel packages and tourism services for both business and leisure travelers.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-home"></i>
                     </div>
-                    <h3>Real Estate</h3>
+                    <h3><a href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services/real-estates-services" target="_blank" style="color: var(--light); text-decoration: none;">Real Estate</a></h3>
                     <p>Professional real estate consulting, property management, and investment advisory services.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3><a href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services/digital-marketing-services" target="_blank" style="color: var(--light); text-decoration: none;">Digital Marketing</a></h3>
+                    <p>Strategic digital marketing solutions to enhance your online presence and drive business growth.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3><a href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services/students-scholarship-services" target="_blank" style="color: var(--light); text-decoration: none;">Student Scholarships</a></h3>
+                    <p>Guidance and assistance for students seeking scholarship opportunities worldwide.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3><a href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services/e-commerce-services" target="_blank" style="color: var(--light); text-decoration: none;">E-commerce</a></h3>
+                    <p>Complete e-commerce solutions including setup, management, and optimization.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3><a href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services/holographic-assistant-services" target="_blank" style="color: var(--light); text-decoration: none;">Holographic Assistant</a></h3>
+                    <p>Advanced holographic assistant services for modern business needs.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <h3><a href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services/shipping-line-logistics-services" target="_blank" style="color: var(--light); text-decoration: none;">Shipping & Logistics</a></h3>
+                    <p>Comprehensive shipping and logistics solutions for global trade.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3><a href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services/electric-and-smart-home-equipment" target="_blank" style="color: var(--light); text-decoration: none;">Smart Home Equipment</a></h3>
+                    <p>Latest electric and smart home equipment solutions for modern living.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-satellite-dish"></i>
+                    </div>
+                    <h3><a href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services/telecommunication-services" target="_blank" style="color: var(--light); text-decoration: none;">Telecommunication</a></h3>
+                    <p>Telecommunication services and solutions for businesses and individuals.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <h3><a href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services/trade-importexport-consulting-services" target="_blank" style="color: var(--light); text-decoration: none;">Trade Import/Export</a></h3>
+                    <p>Consulting services for international trade, import, and export operations.</p>
                 </div>
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-handshake"></i>
                     </div>
-                    <h3>Business Consulting</h3>
-                    <p>Strategic business consulting to help you optimize operations and achieve your goals.</p>
+                    <h3><a href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services/sales-consulting-services" target="_blank" style="color: var(--light); text-decoration: none;">Sales Consulting</a></h3>
+                    <p>Strategic sales consulting to help you optimize operations and achieve your goals.</p>
                 </div>
             </div>
         </div>
@@ -868,8 +1218,21 @@
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div class="contact-text">
-                            <h4>Location</h4>
-                            <p>Karachi, Pakistan</p>
+                            <h4>Business Details</h4>
+                            <p><strong>Google Business:</strong> <a href="https://share.google/94vTJ3nKSWsu81RbH" target="_blank">View Profile</a></p>
+                            <p><strong>Address:</strong> House No R-852, Road No 2, Sector 15 A/2, Buffer Zone, Karachi, Pakistan</p>
+                            <p><strong>Business ID:</strong> 2207860734035826081</p>
+                            <p><strong>Shop Code:</strong> 09800439869067634175</p>
+                            <p><strong>Google Ads Account:</strong> 769-005-1331</p>
+                            <div style="margin-top: 15px;">
+                                <iframe 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3621.386265619886!2d67.03489631499496!3d24.93779828402439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb3390e91b61cb1%3A0x4df0e9f24ed109b0!2sSector%2015-A%202%20Buffer%20Zone%20North%20Karachi%20Town%2C%20Karachi%2C%20Karachi%20City%2C%20Sindh!5e0!3m2!1sen!2s!4v1696778455084!5m2!1sen!2s"
+                                    width="100%" height="200" style="border:0; border-radius: 8px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                                </iframe>
+                            </div>
+                            <div style="margin-top: 15px;">
+                                <a href="https://g.page/r/CZ4tReAOrnVuEAE/review" target="_blank" class="btn">Leave a Review</a>
+                            </div>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -877,17 +1240,13 @@
                             <i class="fas fa-envelope"></i>
                         </div>
                         <div class="contact-text">
-                            <h4>Email</h4>
-                            <a href="mailto:adnansajjadnew786@gmail.com">adnansajjadnew786@gmail.com</a>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fab fa-github"></i>
-                        </div>
-                        <div class="contact-text">
-                            <h4>GitHub</h4>
-                            <a href="https://github.com/AdnanSajjad786" target="_blank">github.com/AdnanSajjad786</a>
+                            <h4>Email Addresses</h4>
+                            <a href="mailto:adnansajjadnew786@gmail.com">adnansajjadnew786@gmail.com</a><br>
+                            <a href="mailto:adnansajjad786new2025@gmail.com">adnansajjad786new2025@gmail.com</a><br>
+                            <a href="mailto:02136940190adnan@gmail.com">02136940190adnan@gmail.com</a><br>
+                            <a href="mailto:adnansajjad786new@yahoo.com">adnansajjad786new@yahoo.com</a><br>
+                            <a href="mailto:adnansajjad786new@hotmail.com">adnansajjad786new@hotmail.com</a><br>
+                            <a href="mailto:adnansajjadnew786@outlook.com">adnansajjadnew786@outlook.com</a>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -896,26 +1255,76 @@
                         </div>
                         <div class="contact-text">
                             <h4>Portfolio</h4>
-                            <a href="https://adnansajjad786.github.io/portfolio-website/" target="_blank">View My Portfolio</a>
+                            <a href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-portfolio" target="_blank">Main Portfolio</a><br>
+                            <a href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-portfolio/photo-gallery" target="_blank">Photo Gallery</a><br>
+                            <a href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-portfolio/clients" target="_blank">Clients</a><br>
+                            <a href="https://sites.google.com/view/adnan-sajjad/adnan-sajjad-portfolio/testimonial" target="_blank">Testimonials</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-address-book"></i>
+                        </div>
+                        <div class="contact-text">
+                            <h4>Contact Pages</h4>
+                            <a href="https://sites.google.com/view/adnan-sajjad/contact-adnan-sajjad" target="_blank">Main Contact</a><br>
+                            <a href="https://sites.google.com/view/adnan-sajjad/contact-adnan-sajjad/opening-hours" target="_blank">Opening Hours</a><br>
+                            <a href="https://sites.google.com/view/adnan-sajjad/contact-adnan-sajjad/booking" target="_blank">Booking</a><br>
+                            <a href="https://sites.google.com/view/adnan-sajjad/contact-adnan-sajjad/blogs" target="_blank">Blogs</a>
                         </div>
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form action="https://formspree.io/f/xqadodqv" method="POST" id="contactForm">
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="name" placeholder="Your Name" required>
+                    <div class="calendly-widget">
+                        <iframe 
+                            src="https://calendly.com/adnansajjadnew786/adnan-sajjad" 
+                            style="width:100%;height:100%;border:0" 
+                            title="Calendly scheduling">
+                        </iframe>
+                    </div>
+                    
+                    <div class="formspree-form">
+                        <form action="https://formspree.io/f/xqadodqv" method="POST">
+                            <div class="form-group">
+                                <label for="name">Your Name:</label>
+                                <input type="text" id="name" name="name" class="form-control" required>
+                                <small>Please enter your full name.</small>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Your Email Address:</label>
+                                <input type="email" id="email" name="email" class="form-control" required>
+                                <small>Please enter your email address so we can get in touch with you.</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number (Optional):</label>
+                                <input type="text" id="phone" name="phone" class="form-control">
+                                <small>Please provide a phone number if you prefer to be contacted by phone.</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="enquiry">Your Enquiry:</label>
+                                <textarea id="enquiry" name="enquiry" class="form-control" required></textarea>
+                                <small>Please mention the services you are inquiring about from Adnan Sajjad below: Tell us what services you are interested in or what information you would like to know.</small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Additional Message or Notes:</label>
+                                <textarea id="message" name="message" class="form-control"></textarea>
+                                <small>Feel free to provide any other details or questions.</small>
+                            </div>
+
+                            <button type="submit" class="btn">Send Message to Mr. Adnan Sajjad</button>
+                            
+                            <small>Your message will be sent to: adnansajjadnew786@gmail.com</small>
+                        </form>
+                        
+                        <div class="important-notice">
+                            <strong>Important Notice: Do Not Filled Contact Form !</strong><br>
+                            My services are offered strictly on a cash basis for foreign clients. Please note that my services are not available to religious figures (Moulanas, Qaris, Peers, Sayeds), NGOs, or psychiatric institutions AND Pakistani. This applies regardless of whether they are from Pakistan or abroad. I apologize for any inconvenience.
                         </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="subject" placeholder="Subject" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea class="form-control" name="message" placeholder="Your Message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn">Send Message</button>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -927,40 +1336,54 @@
             <div class="footer-content">
                 <div class="footer-col">
                     <h4>Adnan Sajjad</h4>
-                    <p>Professional Financial Analyst, Digital Marketer, and Business Consultant with expertise in multiple domains.</p>
+                    <p>Professional Financial Analyst, Travel Tourism, and Business Consultant with expertise in multiple domains.</p>
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://linktr.ee/adnansajjad786" target="_blank" class="social-link" title="Linktree"><i class="fas fa-tree"></i></a>
+                        <a href="https://campsite.bio/adnansajjad" target="_blank" class="social-link" title="Campsite"><i class="fas fa-campground"></i></a>
+                        <a href="https://business.facebook.com/latest/home?business_id=2195335150858941&asset_id=320077607855511" target="_blank" class="social-link" title="Facebook Business"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61559722930168" target="_blank" class="social-link" title="Facebook Profile"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.linkedin.com/in/adnan-sajjad-b48567262/" target="_blank" class="social-link" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.youtube.com/@adnansajjad786" target="_blank" class="social-link" title="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="https://x.com/AdnanSajjadnew" target="_blank" class="social-link" title="Twitter/X"><i class="fab fa-twitter"></i></a>
+                        <a href="https://www.instagram.com/adnansajjad786/" target="_blank" class="social-link" title="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.threads.com/@adnansajjad786" target="_blank" class="social-link" title="Threads"><i class="fab fa-threads"></i></a>
+                        <a href="https://www.pinterest.com/adnansajjadnew786/" target="_blank" class="social-link" title="Pinterest"><i class="fab fa-pinterest"></i></a>
+                        <a href="https://www.tiktok.com/@adnan.sajjad.addy" target="_blank" class="social-link" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://teams.live.com/l/invite/FEAwzpFsG45z8GyIwI?v=g1" target="_blank" class="social-link" title="Microsoft Teams"><i class="fas fa-users"></i></a>
+                        <a href="https://join.skype.com/IVr202tWLh3t" target="_blank" class="social-link" title="Skype"><i class="fab fa-skype"></i></a>
+                        <a href="https://meet.google.com/dge-ytjp-zdo" target="_blank" class="social-link" title="Google Meet"><i class="fas fa-video"></i></a>
+                        <a href="https://www.behance.net/adnansajjad2" target="_blank" class="social-link" title="Behance"><i class="fab fa-behance"></i></a>
+                        <a href="https://www.blogger.com/profile/09356015196666368292" target="_blank" class="social-link" title="Blogger"><i class="fab fa-blogger"></i></a>
+                        <a href="https://jumpshare.com/w/51d1ecd/settings/personal/account" target="_blank" class="social-link" title="Jumpshare"><i class="fas fa-share-alt"></i></a>
+                        <a href="https://giphy.com/explore/adnansajjad786new" target="_blank" class="social-link" title="Giphy"><i class="fas fa-gift"></i></a>
+                        <a href="https://www.twitch.tv/adnansajjad" target="_blank" class="social-link" title="Twitch"><i class="fab fa-twitch"></i></a>
+                        <a href="https://github.com/AdnanSajjad786" target="_blank" class="social-link" title="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="https://dribbble.com/Adnansajjad786" target="_blank" class="social-link" title="Dribbble"><i class="fab fa-dribbble"></i></a>
+                        <a href="https://medium.com/@adnansajjadnew786" target="_blank" class="social-link" title="Medium"><i class="fab fa-medium"></i></a>
+                        <a href="https://mastodon.social/@adnansajjad" target="_blank" class="social-link" title="Mastodon"><i class="fab fa-mastodon"></i></a>
+                        <a href="https://calendly.com/adnansajjadnew786/adnan-sajjad" target="_blank" class="social-link" title="Calendly"><i class="fas fa-calendar"></i></a>
+                        <a href="https://www.xing.com/profile/Adnan_Sajjad/web_profiles" target="_blank" class="social-link" title="Xing"><i class="fab fa-xing"></i></a>
+                        <a href="https://stackoverflow.com/users/31601605/adnan-sajjad?tab=profile" target="_blank" class="social-link" title="Stack Overflow"><i class="fab fa-stack-overflow"></i></a>
+                        <a href="https://developers.google.com/profile/u/adnan-sajjad" target="_blank" class="social-link" title="Google Developers"><i class="fab fa-google"></i></a>
+                        <a href="https://www.snapchat.com/add/adnansajjadkhi" target="_blank" class="social-link" title="Snapchat"><i class="fab fa-snapchat"></i></a>
                     </div>
                 </div>
                 <div class="footer-col">
-                    <h4>Quick Links</h4>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Services</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Financial Analysis</a></li>
-                        <li><a href="#">ERP & IFRS</a></li>
-                        <li><a href="#">Digital Marketing</a></li>
-                        <li><a href="#">Travel & Tourism</a></li>
-                        <li><a href="#">Real Estate</a></li>
-                    </ul>
+                    <div id="wheel-widget">
+                        <div id="wheel-face"></div>
+                    </div>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2023 Adnan Sajjad. All Rights Reserved.</p>
+                <p>© Oct-2025 Adnan Sajjad. All rights reserved. 
+                Powered by 📍 Adnan Sajjad ✨ Connect with me 
+                <a href="https://linktr.ee/adnansajjad786" target="_blank">https://linktr.ee/adnansajjad786</a>  
+                <a href="https://campsite.bio/adnansajjad" target="_blank">https://campsite.bio/adnansajjad</a></p>
             </div>
         </div>
     </footer>
 
+    <!-- JavaScript -->
     <script>
         // Mobile Navigation Toggle
         const hamburger = document.querySelector('.hamburger');
@@ -978,10 +1401,12 @@
         });
         
         // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Thank you for your message! I will get back to you soon.');
-            this.reset();
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! I will get back to you soon.');
+                this.reset();
+            });
         });
         
         // Smooth scrolling for navigation links
@@ -1014,13 +1439,73 @@
             }
         });
         
+        // Rotating Wheel Implementation
+        (function(){
+            const pages = [
+                {url:"https://sites.google.com/view/adnan-sajjad/home", label:"Home"},
+                {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad", label:"About"},
+                {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-cv-2025", label:"CV"},
+                {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-identity-card", label:"ID Card"},
+                {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-education", label:"Education"},
+                {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-work-experience", label:"Work"},
+                {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-travel-history", label:"Travel History"},
+                {url:"https://sites.google.com/view/adnan-sajjad/about-adnan-sajjad/adnan-sajjad-company-concepts-travel-pvt-ltd", label:"Company"},
+                {url:"https://sites.google.com/view/adnan-sajjad/adnan-sajjad-professional-services", label:"Services"},
+                {url:"https://sites.google.com/view/adnan-sajjad/adnan-sajjad-portfolio", label:"Portfolio"},
+                {url:"https://sites.google.com/view/adnan-sajjad/contact-adnan-sajjad", label:"Contact"}
+            ];
+
+            const wheel = document.getElementById("wheel-face");
+            const count = pages.length;
+            const step = 360 / count;
+
+            pages.forEach((p, i) => {
+                const card = document.createElement("div");
+                card.className = "wheel-item";
+                const ang = i * step;
+                card.style.transform = `rotateY(${ang}deg) translateZ(325px)`; 
+                card.innerHTML = `<a href="${p.url}" target="_blank">${p.label}</a>`;
+                wheel.appendChild(card);
+            });
+        })();
+
         // Visitor counter (client-side simple placeholder)
         (function visitorCounter(){
-            const key='adnan_visitors_v1';
+            const key = 'adnan_visitors_v1';
             let cnt = localStorage.getItem(key);
-            if(!cnt){ cnt = Math.floor(Math.random()*4200) + 300; localStorage.setItem(key,cnt); }
-            // You can display this count somewhere if needed
+            if(!cnt){ 
+                cnt = Math.floor(Math.random()*4200) + 300; 
+                localStorage.setItem(key, cnt); 
+            }
+            // Display visitor count
+            document.getElementById('visitorCount').innerText = cnt;
         })();
     </script>
+
+    <!-- Google Analytics 4 Tag -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-RE9T691H1L"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-RE9T691H1L');
+    </script>
+
+    <!-- Live Visitors Counter -->
+    <div id="liveVisitors">
+        👥 Live Visitors: <span id="visitorCount">1</span>
+    </div>
+    <script>
+        // Simulated live visitor counter
+        let visitors = Math.floor(Math.random() * 5) + 1;
+        document.getElementById("visitorCount").innerText = visitors;
+        setInterval(() => {
+            visitors = Math.floor(Math.random() * 5) + 1;
+            document.getElementById("visitorCount").innerText = visitors;
+        }, 10000);
+    </script>
+
+    <!-- Tidio Chatbot -->
+    <script src="//code.tidio.co/pogxgzfctrvbwtfr4amxo7x1kp2bxkml.js" async></script>
 </body>
 </html>
