@@ -615,29 +615,92 @@
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
-        .form-control {
-            width: 100%;
-            padding: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.05);
+        /* ===== FORMSPREE STYLES ===== */
+        .formspree-form label {
+            display: block;
+            margin-bottom: 12px;
             color: var(--light);
-            font-size: 1rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .formspree-form small {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--muted);
+            margin-top: 8px;
+            line-height: 1.4;
+        }
+
+        /* Make text input fields and text area larger */
+        .formspree-form input[type="text"], 
+        .formspree-form input[type="email"], 
+        .formspree-form textarea {
+            font-size: 18px;
+            padding: 15px;
+            border-radius: 8px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            width: 100%;
+            box-sizing: border-box;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--light);
             transition: var(--transition);
         }
 
-        .form-control:focus {
+        .formspree-form input[type="text"]:focus, 
+        .formspree-form input[type="email"]:focus, 
+        .formspree-form textarea:focus {
             outline: none;
             border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(0, 255, 106, 0.1);
+            box-shadow: 0 0 0 3px rgba(0, 255, 106, 0.2);
+            background: rgba(255, 255, 255, 0.12);
         }
 
-        textarea.form-control {
-            min-height: 150px;
+        /* Increase the size of the text area */
+        .formspree-form textarea {
+            height: 180px;
+            font-size: 18px;
+            padding: 15px;
             resize: vertical;
+            min-height: 150px;
+        }
+
+        /* Style for the submit button */
+        .formspree-form button[type="submit"] {
+            font-size: 18px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            color: #002017;
+            padding: 18px 35px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            width: 100%;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            margin-top: 10px;
+        }
+
+        /* Hover effect for the submit button */
+        .formspree-form button[type="submit"]:hover {
+            background: linear-gradient(90deg, var(--primary-dark), var(--primary));
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 255, 106, 0.3);
+        }
+
+        .important-notice {
+            background: rgba(255, 0, 0, 0.1);
+            border: 2px solid rgba(255, 0, 0, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+            color: #ff6b6b;
+            font-size: 0.95rem;
+            text-align: center;
+            line-height: 1.5;
         }
 
         /* ===== FOOTER ===== */
@@ -870,32 +933,6 @@
             z-index: 9999;
         }
 
-        /* ===== FORMSPREE STYLES ===== */
-        .formspree-form label {
-            display: block;
-            margin-bottom: 8px;
-            color: var(--light);
-            font-weight: 600;
-        }
-
-        .formspree-form small {
-            display: block;
-            font-size: 0.8rem;
-            color: var(--muted);
-            margin-top: 5px;
-        }
-
-        .important-notice {
-            background: rgba(255, 0, 0, 0.1);
-            border: 1px solid rgba(255, 0, 0, 0.3);
-            border-radius: 8px;
-            padding: 15px;
-            margin: 20px 0;
-            color: #ff6b6b;
-            font-size: 0.9rem;
-            text-align: center;
-        }
-
         /* ===== BACK TO TOP BUTTON ===== */
         .back-to-top {
             position: fixed;
@@ -1112,6 +1149,17 @@
             .youtube-video iframe {
                 height: 200px;
             }
+
+            .formspree-form input[type="text"], 
+            .formspree-form input[type="email"], 
+            .formspree-form textarea {
+                font-size: 16px;
+                padding: 12px;
+            }
+
+            .formspree-form textarea {
+                height: 150px;
+            }
         }
 
         @media (max-width: 576px) {
@@ -1171,6 +1219,11 @@
                 width: 45px;
                 height: 45px;
                 font-size: 1rem;
+            }
+
+            .formspree-form button[type="submit"] {
+                font-size: 16px;
+                padding: 15px 25px;
             }
         }
 
@@ -1539,35 +1592,35 @@
                         <form action="https://formspree.io/f/xqadodqv" method="POST" id="contact-form">
                             <div class="form-group">
                                 <label for="name">Your Name:</label>
-                                <input type="text" id="name" name="name" class="form-control" required>
+                                <input type="text" id="name" name="name" required>
                                 <small>Please enter your full name.</small>
                             </div>
                             
                             <div class="form-group">
                                 <label for="email">Your Email Address:</label>
-                                <input type="email" id="email" name="email" class="form-control" required>
+                                <input type="email" id="email" name="email" required>
                                 <small>Please enter your email address so we can get in touch with you.</small>
                             </div>
 
                             <div class="form-group">
                                 <label for="phone">Phone Number (Optional):</label>
-                                <input type="text" id="phone" name="phone" class="form-control">
+                                <input type="text" id="phone" name="phone">
                                 <small>Please provide a phone number if you prefer to be contacted by phone.</small>
                             </div>
 
                             <div class="form-group">
                                 <label for="enquiry">Your Enquiry:</label>
-                                <textarea id="enquiry" name="enquiry" class="form-control" required></textarea>
+                                <textarea id="enquiry" name="enquiry" rows="4" required></textarea>
                                 <small>Please mention the services you are inquiring about from Adnan Sajjad below: Tell us what services you are interested in or what information you would like to know.</small>
                             </div>
 
                             <div class="form-group">
                                 <label for="message">Additional Message or Notes:</label>
-                                <textarea id="message" name="message" class="form-control"></textarea>
+                                <textarea id="message" name="message" rows="4"></textarea>
                                 <small>Feel free to provide any other details or questions.</small>
                             </div>
 
-                            <button type="submit" class="btn">Send Message to Mr. Adnan Sajjad</button>
+                            <button type="submit">Send Message to Mr. Adnan Sajjad</button>
                             
                             <small>Your message will be sent to: adnansajjadnew786@gmail.com</small>
                         </form>
@@ -1765,7 +1818,6 @@
         // Form submission - Fixed to actually submit to Formspree
         document.getElementById('contact-form').addEventListener('submit', function(e) {
             // Form will now actually submit to Formspree
-            // You can add additional validation here if needed
             console.log('Form submitted to Formspree');
         });
         
